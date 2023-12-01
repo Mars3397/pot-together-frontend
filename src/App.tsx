@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import SignUp from 'SignUp'
 import Login from 'Login'
 import Overview from './Overview'
 import Room from './Room'
@@ -10,6 +11,7 @@ const App = () => {
   return (
     <Router>
       <Routes>
+        <Route path='/signup' element={<SignUp />} />
         <Route path='/login' element={<Login />} />
         <Route path='/' element={<Overview />} />
         <Route path='/room/:roomId' element={<Room />} />
