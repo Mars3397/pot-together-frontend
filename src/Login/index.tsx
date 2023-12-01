@@ -1,7 +1,11 @@
+import './Login.css'
+
 const Login = () => {
     return (
-        <div>
-            <h1>Login</h1>
+        <div id="login">
+            <div className='content'>
+                <p>Login content</p>
+            </div>
         </div>
     )
 }
