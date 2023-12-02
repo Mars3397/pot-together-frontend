@@ -1,6 +1,7 @@
 #overview {
-    background-color: #F9F9EE;
+    width: 100%;
     min-height: 100vh;
+    background-color: #F9F9EE;
     display: flex;
     flex-direction: column;
 
@@ -9,5 +10,69 @@
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
+    }
+
+    #calendar {
+        background-color: white;
+        border: #D2D000 .2rem solid;
+        border-radius: 1.6rem;
+    }
+
+    #analysis {
+        width: 320px;
+        margin: 0 2rem 1.5rem 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+
+        .analysis-title {
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-bottom: .5rem;
+
+            .analysis-title-text {
+                font-size: 1.1rem;
+            }
+        }
+
+        .analysis-content {
+            width: 100%;
+            min-height: 10rem;
+            background-color: white;
+            border: #FFCDBE .2rem solid;
+            border-radius: .8rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .date {
+                width: 100%;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+
+                .date-text {
+                    color: #D0694B;
+                    font-size: .9rem;
+                    margin: .5rem .8rem .1rem;
+                }
+            }
+
+            .time {
+                width: 100%;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+
+                .time-text {
+                    font-size: 1.2rem;
+                    margin-left: .8rem;
+                }
+            }
+        }
     }
 }

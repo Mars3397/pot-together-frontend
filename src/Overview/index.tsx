@@ -1,4 +1,7 @@
-import Header from 'CommonComponents/header'
+import Header from 'CommonComponents/Header'
+import Calendar from './Calender'
+import IngredientsList from 'CommonComponents/IngredientsList'
+import Analysis from './Analysis'
 import './Overview.css'
 
 const Overview = () => {
@@ -6,7 +9,9 @@ const Overview = () => {
         <div id="overview">
             <Header title='Overview' />
             <div className='content'>
-                <p>content</p>
+                <Calendar />
+                <IngredientsList title="Today I Cooked ..." />
+                <Analysis />
             </div>
         </div>
     )
