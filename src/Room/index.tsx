@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom'
-import Header from 'CommonComponents/header'
+import Header from 'CommonComponents/Header'
 import './Room.css'
 
 const Room = () => {
