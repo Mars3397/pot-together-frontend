@@ -7,7 +7,7 @@ import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded'
 import AddRoundedIcon from '@mui/icons-material/AddRounded'
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded'
 import { MenuItem } from './interfaces'
-import './common.css'
+import './Common.css'
 
 interface HeaderProps {
     title: string
