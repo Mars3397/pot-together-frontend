@@ -1,11 +1,10 @@
-import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import SignUp from 'SignUp'
-import Login from 'Login'
-import Overview from './Overview'
-import Room from './Room'
-import CreatePot from 'CreatePot'
-import SearchPot from 'SearchPot'
+import SignUp from 'components/SignUp'
+import Login from 'components/Login'
+import Overview from 'components/Overview'
+import Room from 'components/Room'
+import CreatePot from 'components/CreatePot'
+import SearchPot from 'components/SearchPot'
 
 const App = () => {
   return (

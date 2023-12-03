@@ -1,0 +1,38 @@
+.ingredients-list {
+    width: 320px;
+    margin: 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    .list-title {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-bottom: .5rem;
+
+        .list-title-text {
+            font-size: 1.1rem;
+        }
+    }
+
+    .list-content {
+        width: 100%;
+        min-height: 3rem;
+        background-color: white;
+        border: #BABEF4 .2rem solid;
+        border-radius: .8rem;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        .list-item {
+            margin: .5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}

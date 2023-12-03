@@ -1,6 +1,6 @@
-import Header from 'CommonComponents/Header'
+import Header from 'components/CommonComponents/Header'
 import Calendar from './Calender'
-import IngredientsList from 'CommonComponents/IngredientsList'
+import IngredientsList from 'components/CommonComponents/IngredientsList'
 import Analysis from './Analysis'
 import './Overview.css'
 

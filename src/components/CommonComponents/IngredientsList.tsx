@@ -1,4 +1,4 @@
-import { ReactComponent as Mushrooms } from '../assets/Mushrooms.svg'
+import { ReactComponent as Mushrooms } from 'assets/Mushrooms.svg'
 import './Common.css'
 
 interface IngredientsListProps {
