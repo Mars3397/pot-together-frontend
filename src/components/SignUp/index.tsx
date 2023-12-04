@@ -1,13 +1,13 @@
-import OrangeMan from 'assets/orange-man.svg'
-import OrangeStar from 'assets/orange-star.svg'
-import SeperateLine from 'assets/line.svg'
+import OrangeMan from 'assets/orange-man.svg';
+import OrangeStar from 'assets/orange-star.svg';
+import SeperateLine from 'assets/line.svg';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import InputField from 'components/CommonComponents/InputField'
+import InputField from 'components/CommonComponents/InputField';
 import AvatarPicker from './AvatarPicker';
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-import './SignUp.css'
+import './SignUp.css';
 
 const SignUp = () => {
     const [mailValue, setMailValue] = useState('');
