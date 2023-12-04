@@ -1,13 +1,127 @@
 #login {
+    width: 100%;
     background-color: #F9F9EE;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    align-items: center;
 
     .content {
+        width: 24.5rem;
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
+        position: relative;
+    }
+
+    .page-title {
+        color: #000000;
+        font-size: 2.5rem;
+        font-weight: 400;
+        letter-spacing: 0;
+        line-height: normal;
+        text-align: center;
+        white-space: nowrap;
+        margin-top: 12rem;
+    }
+
+    #seperate-line {
+        margin-bottom: 4rem;
+    }
+
+    #orange-man {
+        width: 10rem;
+        height: 12rem;
+        position: absolute;
+        top: 3rem;
+        left: 14rem;
+        object-fit: cover;
+    }
+
+    #orange-star1 {
+        width: 3rem;
+        height: 3rem;
+        position: absolute;
+        top: 6.5rem;
+        left: .8rem;
+    }
+
+    #orange-star2 {
+        width: 3rem;
+        height: 3rem;
+        position: absolute;
+        top: 10.5rem;
+        left: 3rem;
+    }
+
+    #input-field {
+        display: flex;
+        height: 3rem;
+        margin-bottom: 2rem;
+        align-items: center;
+        justify-content: flex-start;
+
+        .icon-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 4rem;
+        }
+
+        .icon {
+            font-size: 2.5rem;
+        }
+
+        .text-container {
+            background-color: #FFFFFF;
+            border: .3rem solid #BABEF4;
+            border-radius: 1.25rem;
+            height: 2.5rem;
+            width: 15rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .text-field {
+            border: none;
+            color: #BABEF4;
+            font-family: inherit;
+            font-size: 1.25rem;
+            font-weight: normal;
+            letter-spacing: 0;
+            line-height: normal;
+            width: 85%;
+            background-color: transparent;
+            outline: none;
+        }
+
+        .text-field::placeholder {
+            color: #BABEF4;
+        }
+    }
+
+    #login-button {
+        margin-top: 3rem;
+        font-family: inherit;
+        background-color: #7F84C5;
+        border-radius: 1rem;
+        border: none;
+        color: #FFFFFF;
+        width: 14rem;
+        height: 3rem;
+        font-size: 2rem;
+        font-weight: 400;
+        white-space: nowrap;
+        letter-spacing: 0;
+        line-height: normal;
+    }
+
+    #login-button:hover {
+        cursor: pointer;
+    }
+
+    #login-button:active {
+        filter: brightness(75%);
     }
 }
