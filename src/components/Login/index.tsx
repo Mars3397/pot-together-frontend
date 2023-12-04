@@ -1,11 +1,12 @@
-import OrangeMan from 'assets/orange-man.svg'
-import OrangeStar from 'assets/orange-star.svg'
-import SeperateLine from 'assets/line.svg'
+import OrangeMan from 'assets/orange-man.svg';
+import OrangeStar from 'assets/orange-star.svg';
+import SeperateLine from 'assets/line.svg';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import './Login.css'
-import InputField from './InputField'
-import React, { useState } from 'react'
+import InputField from 'components/CommonComponents/InputField';
+import React, { useState } from 'react';
+
+import './Login.css';
 
 const Login = () => {
     const [mailValue, setMailValue] = useState('');

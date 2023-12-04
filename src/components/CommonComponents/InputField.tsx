@@ -1,4 +1,4 @@
-import './Login.css'
+import './Common.css'
 
 interface InputFieldProps {
     Icon?: React.ElementType;
@@ -11,7 +11,7 @@ interface InputFieldProps {
 const InputField = (props: InputFieldProps) => {
     const { Icon, type = "text", placeholder, value, onChange } = props;
     return (
-        <div id='input-field'>
+        <div className='input-field'>
             <div className="icon-container">
                 {Icon && <Icon className="icon" />}
             </div>
