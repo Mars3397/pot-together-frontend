@@ -4,6 +4,7 @@ import IngredientsList from 'components/CommonComponents/IngredientsList'
 import TimeProgress from '../CommonComponents/TimeProgress'
 import Members from './Members'
 import GroupAnalysis from './GroupAnalysis'
+import BottomMenu from './BottomMenu'
 import './Room.css'
 
 const Room = () => {
@@ -24,6 +25,7 @@ const Room = () => {
                 <IngredientsList title="Now Cooking..." />
                 <IngredientsList title="Done!" />
             </div>
+            <BottomMenu />
         </div>
     )
 }

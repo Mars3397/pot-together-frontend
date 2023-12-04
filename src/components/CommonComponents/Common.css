@@ -57,7 +57,6 @@
             width: 100%;
             display: flex;
             justify-content: flex-start;
-            align-items: center;
             margin-bottom: .5rem;
             font-size: 1.1rem;
         }
@@ -82,8 +81,7 @@
                     display: flex;
                     justify-content: flex-start;
                     align-items: center;
-        
-                    /* Change the fill color of the LinearProgress bar */
+
                     .MuiLinearProgress-bar {
                         background-color: #EF7754;
                         border-radius: .6rem;
@@ -100,11 +98,18 @@
             }
         }
     }
+
     .progress-ingredient {
         font-size: .8rem;
         display: flex;
         flex-direction: column;
         align-items: center;
         margin-left: auto; 
+
+        .progress-ingredient-unlock {
+            display: flex;
+            /* align-items: end; */
+            justify-content: flex-end;
+        }
     }
 }
