@@ -10,4 +10,45 @@
         justify-content: flex-start;
         align-items: center;
     }
+
+    #members {
+        width: 320px;
+        margin: 1.5rem 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+
+        .members-title {
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-bottom: .5rem;
+            font-size: 1.1rem;
+        }
+        .members-content {
+            width: 100%;
+            min-height: 3rem;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            background-color: #D2D000;
+            border-radius: 1.6rem;
+            padding: 0.6rem;
+            .members-item {
+                margin: .3rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 100%;
+                border: #BABEF4 .2rem solid;
+
+                .avatar {
+                    width: 2.5rem;
+                    /* height: 30px; */
+                }
+            }
+        }
+    }
 }

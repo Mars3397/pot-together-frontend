@@ -36,3 +36,75 @@
         }
     }
 }
+
+.time-progress {
+    width: 320px;
+    margin: 1.5rem 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    .progress-during {
+        width: 100%;
+        margin-right: .5rem; 
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+
+        .progress-title {
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-bottom: .5rem;
+            font-size: 1.1rem;
+        }
+
+        .progress-container {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            .progress-content {
+                position: relative;
+                width: 100%;
+                border-radius: .8rem;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+        
+                .progress-bar {
+                    width: 100%;
+                    min-height: 1.5rem;
+                    background-color: #FFCDBE;
+                    border-radius: .6rem;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+        
+                    /* Change the fill color of the LinearProgress bar */
+                    .MuiLinearProgress-bar {
+                        background-color: #EF7754;
+                        border-radius: .6rem;
+                    }
+                }
+        
+                .progress-num {
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                    color: #ffffff;
+                }
+            }
+        }
+    }
+    .progress-ingredient {
+        font-size: .8rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: auto; 
+    }
+}
