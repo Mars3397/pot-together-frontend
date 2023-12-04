@@ -23,6 +23,7 @@
         text-align: center;
         white-space: nowrap;
         margin-top: 12rem;
+        z-index: 2;
     }
 
     #seperate-line {
@@ -36,6 +37,7 @@
         top: 3rem;
         left: 14rem;
         object-fit: cover;
+        z-index: 1;
     }
 
     #orange-star1 {
