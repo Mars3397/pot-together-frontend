@@ -7,7 +7,7 @@
     align-items: center;
 
     .content {
-        width: 390px;
+        width: 24.5rem;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -16,48 +16,48 @@
 
     .page-title {
         color: #000000;
-        font-size: 40px;
+        font-size: 2.5rem;
         font-weight: 400;
         letter-spacing: 0;
         line-height: normal;
         text-align: center;
         white-space: nowrap;
-        margin-top: 195px;
+        margin-top: 12rem;
     }
 
     #seperate-line {
-        margin-bottom: 62px;
+        margin-bottom: 4rem;
     }
 
     #orange-man {
-        width: 166px;
-        height: 197px;
+        width: 10rem;
+        height: 12rem;
         position: absolute;
-        top: 47px;
-        left: 230px;
+        top: 3rem;
+        left: 14rem;
         object-fit: cover;
     }
 
     #orange-star1 {
-        width: 50px;
-        height: 50px;
+        width: 3rem;
+        height: 3rem;
         position: absolute;
-        top: 107px;
-        left: 12px;
+        top: 6.5rem;
+        left: .8rem;
     }
 
     #orange-star2 {
-        width: 50px;
-        height: 50px;
+        width: 3rem;
+        height: 3rem;
         position: absolute;
-        top: 170px;
-        left: 43px;
+        top: 10.5rem;
+        left: 3rem;
     }
 
     #input-field {
         display: flex;
-        height: 48;
-        margin-bottom: 37px;
+        height: 3rem;
+        margin-bottom: 2rem;
         align-items: center;
         justify-content: flex-start;
 
@@ -65,15 +65,19 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 60px;
+            width: 4rem;
+        }
+
+        .icon {
+            font-size: 2.5rem;
         }
 
         .text-container {
             background-color: #FFFFFF;
-            border: 5px solid #BABEF4;
-            border-radius: 20px;
-            height: 38px;
-            width: 237px;
+            border: .3rem solid #BABEF4;
+            border-radius: 1.25rem;
+            height: 2.5rem;
+            width: 15rem;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -83,8 +87,8 @@
             border: none;
             color: #BABEF4;
             font-family: inherit;
-            font-size: 20px;
-            font-weight: 400;
+            font-size: 1.25rem;
+            font-weight: normal;
             letter-spacing: 0;
             line-height: normal;
             width: 85%;
@@ -98,15 +102,15 @@
     }
 
     #login-button {
-        margin-top: 55px;
+        margin-top: 3rem;
         font-family: inherit;
         background-color: #7F84C5;
-        border-radius: 10px;
+        border-radius: 1rem;
         border: none;
         color: #FFFFFF;
-        width: 220px;
-        height: 52px;
-        font-size: 32px;
+        width: 14rem;
+        height: 3rem;
+        font-size: 2rem;
         font-weight: 400;
         white-space: nowrap;
         letter-spacing: 0;

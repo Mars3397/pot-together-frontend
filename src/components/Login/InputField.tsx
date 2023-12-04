@@ -13,7 +13,7 @@ const InputField = (props: InputFieldProps) => {
     return (
         <div id='input-field'>
             <div className="icon-container">
-                {Icon && <Icon />}
+                {Icon && <Icon className="icon" />}
             </div>
 
             <div className="text-container">
