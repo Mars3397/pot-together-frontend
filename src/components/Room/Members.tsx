@@ -27,6 +27,9 @@ const Members = () => {
                 <div className='members-item' style={{ borderColor: colorList[3] }}>
                     <img src={avatarList[3]} alt="Avatar4" className="avatar"/>
                 </div>
+                {/* <div className='members-item' style={{ borderColor: colorList[3] }}>
+                    <img src={avatarList[3]} alt="Avatar4" className="avatar"/>
+                </div> */}
             </div>
         </div>
     )

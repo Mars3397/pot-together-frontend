@@ -3,7 +3,7 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-
+    padding-bottom: 3rem;
     .content {
         display: flex;
         flex-direction: column;
@@ -30,9 +30,8 @@
 
         .members-content {
             width: 100%;
-            min-height: 3rem;
-            display: flex;
-            justify-content: flex-start;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
             align-items: center;
             background-color: #D2D000;
             border-radius: 1.6rem;
@@ -43,12 +42,15 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                border-radius: 100%;
+                border-radius: 50%;
                 border-width: .3rem;
                 border-style: solid;
+                width: 2.5rem;
+                height: 2.5rem;
 
                 .avatar {
-                    width: 2.5rem;
+                    aspect-ratio: 1 / 1; 
+                    width: 100%;
                 }
             }
         }
@@ -95,22 +97,35 @@
     }
 
     #bottom-menu {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        left: 0;
         background-color: #D2D000;
         margin-bottom: 0;
         padding-block: .5rem;
-        /* height: 4vh; */
-        /* width: 100%; */
+        padding-inline: 1rem;
         display: flex;
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
 
         .bottom-menu-item {
-            height: 2.5rem;
+            height: 1.5rem;
         }
+
         .bottom-menu-start {
-            height: 4rem;
-            margin-top: -1.5rem;
+            height: 3rem;
+            margin-top: -1rem;
         }
+    }
+    #dish-up-btn {
+        background-color: #EF7754;
+        border-radius: .8rem;
+        padding-inline: 1.5rem;
+        padding-block: .5rem;
+        font-size: 1.1rem;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
     }
 }

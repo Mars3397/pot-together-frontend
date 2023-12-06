@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom'
 import Header from 'components/CommonComponents/Header'
 import IngredientsList from 'components/CommonComponents/IngredientsList'
-import TimeProgress from '../CommonComponents/TimeProgress'
+import TimeProgress from '../CommonComponents/TimeProgress/TimeProgress'
 import Members from './Members'
 import GroupAnalysis from './GroupAnalysis'
 import BottomMenu from './BottomMenu'
@@ -24,6 +24,9 @@ const Room = () => {
                 />
                 <IngredientsList title="Now Cooking..." />
                 <IngredientsList title="Done!" />
+                <div id='dish-up-btn'>
+                    DISH UP
+                </div>
             </div>
             <BottomMenu />
         </div>
