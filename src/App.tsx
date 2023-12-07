@@ -6,6 +6,7 @@ import Overview from 'components/Overview'
 import Room from 'components/Room'
 import CreatePot from 'components/CreatePot'
 import SearchPot from 'components/SearchPot'
+import Cooking from 'components/Cooking'
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
         <Route path='/login' element={<Login />} />
         <Route path='/' element={<Overview />} />
         <Route path='/room/:roomId' element={<Room />} />
+        <Route path='/room/:roomId/Cooking' element={<Cooking />} />
         <Route path='/CreatePot' element={<CreatePot />} />
         <Route path='/SearchPot' element={<SearchPot />} />
       </Routes>

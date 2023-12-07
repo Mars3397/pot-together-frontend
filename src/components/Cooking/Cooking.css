@@ -1,0 +1,56 @@
+#cooking {
+    background-color: #F9F9EE;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        margin-block: 1.5rem;
+        font-size: 1.1rem;
+        text-align: center;
+    }
+
+    .cooking-img {
+        position: relative;
+        display: flex;
+        width: 300px;
+        height: 50vh;
+        margin-inline: auto;
+        align-items: center;
+
+        .cooking-ingredient {
+            position: absolute;
+            left: 10%;
+            bottom: 55%;
+            width: 5rem;
+        }
+        
+        .cooking-pot {
+            position: absolute;
+            left: 20%;
+        }
+        .cooking-timer {
+            position: absolute;
+            font-size: 6rem;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+    .done-btn {
+        background-color: #D2D000;
+        border-radius: .8rem;
+        padding-inline: 3rem;
+        padding-block: .5rem;
+        font-size: 1.1rem;
+        align-items: center;
+        text-decoration: none;
+        color: black;
+    }
+}
