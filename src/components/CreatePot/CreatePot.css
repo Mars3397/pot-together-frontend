@@ -1,0 +1,126 @@
+#create-pot-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    background-color: #D2D000;
+
+    .name-container {
+        width: calc(100% - 4rem);
+        padding: 0 2rem;
+        display: flex;
+        justify-content: flex-start;
+        align-content: center;
+
+        .name-icon {
+            color: #F9F9EE;
+            background-color: #7F84C5;
+            border-radius: 50%;
+            padding: .5rem .4rem .4rem .4rem;
+            font-size: 3rem;
+        }
+
+        .name-input {
+            flex: 1;
+            margin: .6rem 0;
+            margin-left: 1rem;
+            border: none;
+            border-radius: 20px;
+            font-size: 1.25rem;
+
+            &::placeholder {
+                color: #BABEF4;
+                font-family: Jua;
+                text-align: center;
+                font-size: 1.25rem;
+                font-weight: 400;
+            }
+        }
+    }
+
+    .member-container {
+        width: calc(100% - 4rem);
+        padding: 0 2rem;
+        display: flex;
+        justify-content: flex-start;
+        align-content: center;
+        margin-top: 2rem;
+
+        .member-title {
+            color: #000;
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: 400;
+        }
+
+        .member-input {
+            width: 60%;
+            margin-left: 1rem;
+            border: none;
+            border-radius: 20px;
+            font-size: 1.25rem;
+
+            &::placeholder {
+                color: #BABEF4;
+                font-family: Jua;
+                text-align: center;
+                font-size: 1.25rem;
+                font-weight: 400;
+            }
+        }
+    }
+
+    .btns-field-container {
+        width: calc(100% - 4rem);
+        padding: 0 2rem;
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+
+        .title {
+            color: #000;
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: 400;
+        }
+
+        .btns-container {
+            margin-top: 1rem;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+
+            .btn {
+                width: calc(50% - 2rem);
+                margin-bottom: 1rem;
+                padding: .4rem 1rem;
+                border: none;
+                border-radius: 10px;
+                text-align: center;
+                font-family: Jua;
+                font-size: 1.25rem;
+                font-weight: 400;
+                text-transform: none;
+            }
+        }
+    }
+
+    .create-btn {
+        width: calc(100% - 4rem);
+        margin: 5rem 2rem 0;
+        padding: .4rem 0;
+        color: #FFF;
+        border: none;
+        text-align: center;
+        font-family: Jua;
+        font-size: 1.8rem;
+        font-weight: 400;
+        border-radius: 10px;
+        background: #7F84C5;
+    }
+}
