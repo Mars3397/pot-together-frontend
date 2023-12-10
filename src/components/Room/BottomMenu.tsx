@@ -10,7 +10,7 @@ function BottomMenu() {
             <Link  to="/">
                 <img src={AnalysisBtn} alt="AnalysisBtn" className="bottom-menu-item"/>
             </Link>
-            <Link to="/">
+            <Link to="./choose">
                 <img src={StartBtn} alt="StartBtn" className="bottom-menu-start"/>
             </Link>
             <Link to="/">
