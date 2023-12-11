@@ -13,12 +13,12 @@ const Room = () => {
     return (
         <div id="room">
             {/* Room name should be retrived from API data (handle later) */}
-            <Header title={String(roomId)} /> 
+            <Header title={String(roomId)} roomId={Number(roomId)} />
             <div className='content'>
                 <Members />
-                <GroupAnalysis duration={100} targetYear={2023} targetMonth={1} targetDay={2}/>
-                <TimeProgress 
-                    title="Total Cooking Duration " 
+                <GroupAnalysis duration={100} targetYear={2023} targetMonth={1} targetDay={2} />
+                <TimeProgress
+                    title="Total Cooking Duration "
                     duration={92}
                     target={200}
                 />
