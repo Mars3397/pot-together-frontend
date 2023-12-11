@@ -1,0 +1,80 @@
+#search-pot {
+    width: 100%;
+    height: 100vh;
+    background: #D2D000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    .input-field {
+        width: calc(100% - 4rem);
+        height: 3.5rem;
+        margin: .5rem 2rem;
+        flex-shrink: 0;
+        border-radius: 20px;
+        border: none;
+        background: #FFF;
+
+        &>div {
+            width: 100%;
+        }
+
+        .input-field-icon {
+            color: #BABEF4;
+        }
+    }
+
+    .filter-btns {
+        width: calc(100% - 4rem);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: .5rem 2rem;
+
+        .filter-btn {
+            padding: .4rem 1rem;
+            border-radius: 10px;
+            font-family: Jua;
+            border: none;
+            background: #FFF;
+            color: #7F84C5;
+            font-size: .8rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .filter-btn-active {
+            background: #7F84C5;
+            color: #FFF;
+        }
+    }
+
+    .pot-list {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+
+        .pot {
+            width: calc(100% - 4rem);
+            font-size: 1.3rem;
+            height: 4rem;
+            border-radius: 30px;
+            background-color: #FFFFFF;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+
+            .pot-name {
+                margin-left: 1.5rem;
+            }
+
+            .pot-member {
+                margin-right: 1.5rem;
+            }
+        }
+    }
+}
