@@ -17,6 +17,7 @@ const SignUp = () => {
     const [mailValue, setMailValue] = useState('');
     const [passwdValue, setPasswdValue] = useState('');
     const [showPopup, setShowPopup] = useState(false);
+    const [currentAvatar, setAvatar] = useState(0);
     const images = [
         avatar0,
         avatar1,
@@ -31,13 +32,10 @@ const SignUp = () => {
         setPasswdValue(event.target.value);
     };
 
-    const handleLogin = () => {
-        console.log(`mailValue: ${mailValue}`)
-        console.log(`passwdValue: ${passwdValue}`)
-    }
-
-    const chooseAvatar = (index: number) => {
-        console.log(index);
+    const handleSignUp = () => {
+        console.log(`mailValue: ${mailValue}`);
+        console.log(`passwdValue: ${passwdValue}`);
+        console.log(`currentAvatar: ${currentAvatar}`);
     }
 
     return (
@@ -45,11 +43,11 @@ const SignUp = () => {
             <div className='content'>
                 <div className="page-title">SIGN UP</div>
                 <img id="seperate-line" src={SeperateLine} alt="" />
-                <AvatarPicker setShowPopup={setShowPopup} />
+                <AvatarPicker setShowPopup={setShowPopup} avatarIcon={images[currentAvatar]} />
                 <InputField Icon={MailOutlineIcon} placeholder="MAIL" value={mailValue} onChange={handleMailChange} />
                 <InputField Icon={LockOutlinedIcon} type="password" placeholder="PASSWORD" value={passwdValue} onChange={handlePasswdChange} />
-                <button onClick={handleLogin} id="create-button">Create Account</button>
-                {showPopup && <AvatarPickerPopup setShowPopup={setShowPopup} chooseAvatar={chooseAvatar} images={images} />}
+                <button onClick={handleSignUp} id="create-button">Create Account</button>
+                {showPopup && <AvatarPickerPopup setShowPopup={setShowPopup} setAvatar={setAvatar} images={images} />}
                 {/* The images below are decorations */}
                 <img id="chef-cat" src={ChefCat} alt="" />
                 <img id="orange-star1" src={OrangeStar} alt="" />

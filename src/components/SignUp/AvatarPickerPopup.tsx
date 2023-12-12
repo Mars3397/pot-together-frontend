@@ -3,12 +3,17 @@ import './SignUp.css';
 
 interface AvatarPickerPopupProps {
     setShowPopup: (value: boolean) => void;
-    chooseAvatar: (value: number) => void;
+    setAvatar: (value: number) => void;
     images: string[];
 }
 
 const AvatarPickerPopup = (props: AvatarPickerPopupProps) => {
-    const { setShowPopup, chooseAvatar, images } = props;
+    const { setShowPopup, setAvatar, images } = props;
+
+    const handleIconClicked = (index: number) => {
+        setAvatar(index);
+        setShowPopup(false);
+    }
     return (
         <div className="avatar-picker-popup">
             <CloseIcon className="close-button" onClick={() => { setShowPopup(false) }} />
@@ -17,7 +22,7 @@ const AvatarPickerPopup = (props: AvatarPickerPopupProps) => {
             </div>
             <div className="icon-container">
                 {images.map((image, index) => (
-                    <img key={index} src={image} onClick={() => chooseAvatar(index)} className="avatar-icon" alt="" />
+                    <img key={index} src={image} onClick={() => handleIconClicked(index)} className="avatar-icon" alt="" />
                 ))}
             </div>
         </div>
