@@ -1,10 +1,12 @@
 #sign-up {
     width: 100%;
+    height: 100%;
     background-color: #F9F9EE;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-x: hidden;
 
     .content {
         width: 24.5rem;
@@ -13,6 +15,7 @@
         align-items: center;
         position: relative;
     }
+
 
     .page-title {
         color: #000000;
@@ -26,7 +29,7 @@
         z-index: 2;
     }
 
-    #orange-man {
+    #chef-cat {
         width: 10rem;
         height: 12rem;
         position: absolute;
@@ -91,20 +94,77 @@
             align-items: center;
             position: relative;
 
-            .avatar-frame {
+            .avatar-picker-background {
+                top: .4rem;
+                width: 10.5rem;
+                height: 10rem;
                 position: absolute;
                 z-index: 1;
+            }
+
+            .avatar-frame {
+                width: 10.5rem;
+                height: 10rem;
+                position: absolute;
+                z-index: 2;
             }
 
             .avatar-icon {
                 position: absolute;
                 margin-top: .5rem;
-                z-index: 2;
+                z-index: 3;
             }
         }
 
         .avatar-label {
             font-size: 1.5rem;
+        }
+    }
+
+    .avatar-picker-popup {
+        top: 30%;
+        width: 80%;
+        border-radius: 1rem;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #FFFFFF;
+        z-index: 4;
+
+        .close-button {
+            top: .5rem;
+            left: .5rem;
+            width: 2.5rem;
+            height: 2.5rem;
+            align-self: flex-start;
+        }
+
+        .popup-title-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 80%;
+            border-radius: 2.5rem;
+            background-color: #F5F5A8;
+        }
+
+        .popup-title-text {
+            padding: 1rem;
+            font-size: 1.25rem;
+            font-weight: normal;
+        }
+
+        .icon-container {
+            margin: 1.5rem;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+        }
+
+        .avatar-icon {
+            width: 6rem;
+            height: 6rem;
         }
     }
 }

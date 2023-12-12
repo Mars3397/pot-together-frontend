@@ -1,9 +1,9 @@
-import OrangeMan from 'assets/orange-man.svg';
+import ChefCat from 'assets/chef-cat.svg';
 import OrangeStar from 'assets/orange-star.svg';
 import SeperateLine from 'assets/line.svg';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import InputField from 'components/CommonComponents/InputField';
+import InputField from 'components/CommonComponents/InputField/InputField';
 import React, { useState } from 'react';
 
 import './Login.css';
@@ -33,7 +33,7 @@ const Login = () => {
                 <InputField Icon={MailOutlineIcon} placeholder="MAIL" value={mailValue} onChange={handleMailChange} />
                 <InputField Icon={LockOutlinedIcon} type="password" placeholder="PASSWORD" value={passwdValue} onChange={handlePasswdChange} />
                 <button onClick={handleLogin} id="login-button">LOGIN</button>
-                <img id="orange-man" src={OrangeMan} alt="" />
+                <img id="chef-cat" src={ChefCat} alt="" />
                 <img id="orange-star1" src={OrangeStar} alt="" />
                 <img id="orange-star2" src={OrangeStar} alt="" />
             </div>
