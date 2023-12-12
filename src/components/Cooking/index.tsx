@@ -10,15 +10,23 @@ const contentList = [
     'The timer has been paused.',
 ];
 
+var count = 0
+
 const Cooking = () => {
     const [targetTime, setTargetTime] = useState(initTime * 60);
     const [contentIndex, setContentIndex] = useState(0);
     const [isFaceUp] = useState(false);
     // const [isFaceUp, setIsFaceUp] = useState(false);
     
-    const aaRef = useRef(-1);
-    const bbRef = useRef(-1);
-    const ggRef = useRef(-1);
+    // const alphaRef = useRef(90);
+    // const betaRef = useRef(90);
+    // const gammaRef = useRef(90);
+
+    const [alpha, setAlpha] = useState(90);
+    const [beta, setBeta] = useState(90)
+    const [gamma, setGamma] = useState(90)
+
+
 
     useEffect(() => {
         const intervalId = setInterval(() => {
@@ -46,43 +54,56 @@ const Cooking = () => {
 
     useEffect(() => {
         const handleOrientationChange = (event: DeviceOrientationEvent) => {
-            const alpha = event.alpha || 0;
-            const beta = event.beta || 0;
-            const gamma = event.gamma || 0;
-
-            console.log('Alpha:', alpha);
-            console.log('Beta:', beta);
-            console.log('Gamma:', gamma);
-
-            aaRef.current = alpha;
-            bbRef.current = beta;
-            ggRef.current = gamma;
+            count += 1
+            const alphaBuf = event.alpha || 0;
+            const betaBuf = event.beta || 0;
+            const gammaBuf = event.gamma || 0;
+            // const alpha = event.alpha !== null && event.alpha !== undefined ? event.alpha : 0;
+            // const beta = event.beta !== null && event.beta !== undefined ? event.beta : 0;
+            // const gamma = event.gamma !== null && event.gamma !== undefined ? event.gamma : 0;
+            
+            setAlpha(alphaBuf);
+            setBeta(betaBuf);
+            setGamma(gammaBuf);
         };
 
-        if (window.DeviceOrientationEvent) {
-            if (!aaRef.current || !bbRef.current || !ggRef.current) {
-                window.addEventListener('deviceorientation', handleOrientationChange);
-            }
+        if (window.DeviceOrientationEvent !== undefined) {
+            window.addEventListener('deviceorientation', handleOrientationChange);
 
             return () => {
-                aaRef.current = -10;
-                bbRef.current = -10;
-                ggRef.current = -10;
+                setAlpha(-10);
+                setBeta(-10);
+                setGamma(-10);
+
                 window.removeEventListener('deviceorientation', handleOrientationChange);
             };
         } else {
-            console.error('Your browser does not support device orientation.');
-            aaRef.current = 10;
-            bbRef.current = 10;
-            ggRef.current = 10;
+            console.log('Your browser does not support device orientation.');
         }
-    }, []);
+    }, [alpha, beta, gamma]);
+    // useEffect(() => {
+    //     const testFunc = (event: MouseEvent) => {
+    //         count += 1
+            
+    //     };
+
+    //     window.addEventListener('click', testFunc);
+
+    //     return () => {
+    //         alphaRef.current = -10;
+    //         betaRef.current = -10;
+    //         gammaRef.current = -10;
+
+    //         window.removeEventListener('click', testFunc);
+    //     };
+
+    // });
 
     return (
         <div id="cooking">
-            <span className="content" style={{ fontSize: '3.5rem', letterSpacing: '.2rem' }}>
+            {/* <span className="content" style={{ fontSize: '3.5rem', letterSpacing: '.2rem' }}>
                 {targetTime >= 0 ? formatTime(targetTime) : '+' + formatTime(-targetTime)}
-            </span>
+            </span> */}
             <span className="content">{contentList[contentIndex]}</span>
             <div className="cooking-img">
                 <img className="cooking-ingredient" src={Mushrooms} alt="" />
@@ -93,7 +114,8 @@ const Cooking = () => {
                 Turn the phone over<br />
                 to start cooking
             </span>
-            <span>value:{aaRef.current}/{bbRef.current}/{ggRef.current}</span>
+            <span>value:{count}</span>
+            <span>value:{alpha}/{beta}/{gamma}</span>
             <div style={{ marginBlock: '1rem' }}>
                 <a href="/" className="done-btn">
                     Done
