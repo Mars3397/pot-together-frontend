@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import routes, { RouteConfig } from 'authentication/routes';
 
 // This is for testing only.
-const isAuthenticated = false;
+const isAuthenticated = true;
 
 const App = () => {
   return (

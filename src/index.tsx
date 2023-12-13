@@ -5,6 +5,9 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
+// Add the theme-color (color of status bar)
+document.head.querySelector('meta[name="theme-color"]')?.setAttribute('content', '#F9F9EE');
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
