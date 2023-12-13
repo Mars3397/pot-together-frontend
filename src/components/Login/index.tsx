@@ -5,7 +5,7 @@ import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import InputField from 'components/CommonComponents/InputField/InputField';
 import React, { useState } from 'react';
-
+import { Link } from 'react-router-dom';
 import './Login.css';
 
 const Login = () => {
@@ -33,6 +33,11 @@ const Login = () => {
                 <InputField Icon={MailOutlineIcon} placeholder="MAIL" value={mailValue} onChange={handleMailChange} />
                 <InputField Icon={LockOutlinedIcon} type="password" placeholder="PASSWORD" value={passwdValue} onChange={handlePasswdChange} />
                 <button onClick={handleLogin} id="login-button">LOGIN</button>
+                <div className="signup-wrapper">
+                    <div className="signup-hint">Don't have an account?</div>
+                    <Link className="signup-link" to="/signup">Create an account</Link>
+                </div>
+
                 <img id="chef-cat" src={ChefCat} alt="" />
                 <img id="orange-star1" src={OrangeStar} alt="" />
                 <img id="orange-star2" src={OrangeStar} alt="" />
