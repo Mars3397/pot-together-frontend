@@ -62,8 +62,10 @@ const SignUp = () => {
                 <InputField Icon={LockOutlinedIcon} type="password" placeholder="PASSWORD" value={passwdValue} onChange={handlePasswdChange} />
                 <button onClick={handleSignUp} id="create-button">Create Account</button>
                 <div className="login-wrapper">
-                    <div className="login-hint">Don't have an account?</div>
-                    <Link className="login-link" to="/login">Log in</Link>
+                    <div className="login-hint">
+                        Already have an account?
+                        <Link className="login-link" to="/login">Login</Link>
+                    </div>
                 </div>
                 {showPopup && <AvatarPickerPopup setShowPopup={setShowPopup} setAvatar={setAvatar} images={images} />}
                 {/* The images below are decorations */}
