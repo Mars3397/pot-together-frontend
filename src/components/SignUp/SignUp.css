@@ -25,7 +25,7 @@
         line-height: normal;
         text-align: center;
         white-space: nowrap;
-        margin-top: 12rem;
+        margin-top: 10rem;
         z-index: 2;
     }
 
@@ -56,7 +56,7 @@
     }
 
     #create-button {
-        margin-top: 3rem;
+        margin-top: 1rem;
         font-family: inherit;
         background-color: #7F84C5;
         border-radius: 1rem;
