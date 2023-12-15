@@ -6,11 +6,13 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import InputField from 'components/CommonComponents/InputField/InputField';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useLogin } from 'hooks/useUser';
 import './Login.css';
 
 const Login = () => {
     const [mailValue, setMailValue] = useState('');
     const [passwdValue, setPasswdValue] = useState('');
+    const loginMutation = useLogin();
 
     const handleMailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setMailValue(event.target.value);
@@ -21,8 +23,10 @@ const Login = () => {
     };
 
     const handleLogin = () => {
-        console.log(`mailValue: ${mailValue}`)
-        console.log(`passwdValue: ${passwdValue}`)
+        loginMutation.mutate({
+            email: mailValue,
+            passwd: passwdValue
+        });
     }
 
     return (
