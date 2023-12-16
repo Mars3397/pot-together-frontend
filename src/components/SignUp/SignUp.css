@@ -167,4 +167,19 @@
             height: 6rem;
         }
     }
+    
+    .login-wrapper {
+        margin-top: 2rem;
+        display: flex;
+        align-items: center;
+
+        .login-hint {
+            color: #35413C;
+        }
+
+        .login-link {
+            padding-left: 1rem;
+            color: #EF7753;
+        }
+    }
 }

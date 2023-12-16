@@ -7,6 +7,7 @@ import InputField from 'components/CommonComponents/InputField/InputField';
 import AvatarPicker from './AvatarPicker';
 import AvatarPickerPopup from './AvatarPickerPopup';
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import avatar0 from 'assets/Avatar1.svg';
 import avatar1 from 'assets/Avatar2.svg';
 import avatar2 from 'assets/Avatar3.svg';
@@ -47,6 +48,10 @@ const SignUp = () => {
                 <InputField Icon={MailOutlineIcon} placeholder="MAIL" value={mailValue} onChange={handleMailChange} />
                 <InputField Icon={LockOutlinedIcon} type="password" placeholder="PASSWORD" value={passwdValue} onChange={handlePasswdChange} />
                 <button onClick={handleSignUp} id="create-button">Create Account</button>
+                <div className="login-wrapper">
+                    <div className="login-hint">Don't have an account?</div>
+                    <Link className="login-link" to="/login">Log in</Link>
+                </div>
                 {showPopup && <AvatarPickerPopup setShowPopup={setShowPopup} setAvatar={setAvatar} images={images} />}
                 {/* The images below are decorations */}
                 <img id="chef-cat" src={ChefCat} alt="" />
