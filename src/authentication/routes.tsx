@@ -6,6 +6,7 @@ import Room from 'components/Room'
 import CreatePot from 'components/CreatePot'
 import SearchPot from 'components/SearchPot'
 import Choose from 'components/Choose'
+import IngredientsViewsPage from 'components/IngredientsViews-Usage'
 
 export type RouteConfig = {
   path: string;
@@ -55,6 +56,11 @@ const routes: RouteConfig[] = [
     element: <Choose />,
     isPrivate: true,
   },
+  {
+    path: '/ingredients-views-usage',
+    element: <IngredientsViewsPage />,
+    isPrivate: false,
+  }
 ];
 
 export default routes;
