@@ -25,7 +25,7 @@ const Login = () => {
     const handleLogin = () => {
         loginMutation.mutate({
             email: mailValue,
-            passwd: passwdValue
+            password: passwdValue
         });
     }
 

@@ -2,7 +2,7 @@ const backendBaseUrl = 'https://pottogether.store';
 
 const API = {
     signup: `${backendBaseUrl}/users/signup`,
-    login: `${backendBaseUrl}/user/login`,
+    login: `${backendBaseUrl}/users/login`,
     rooms: `${backendBaseUrl}/rooms`,
     searchRooms: `${backendBaseUrl}/rooms/search`,
     publicRooms: `${backendBaseUrl}/rooms/public`,

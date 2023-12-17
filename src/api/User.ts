@@ -5,7 +5,7 @@ interface SignupData {
     avatar: number;
     name: string;
     email: string;
-    passwd: string;
+    password: string;
 }
 
 export const Signup = async (data: SignupData) => {
@@ -19,7 +19,7 @@ export const Signup = async (data: SignupData) => {
 
 interface LoginData {
     email: string;
-    passwd: string;
+    password: string;
 }
 
 export const Login = async (data: LoginData) => {

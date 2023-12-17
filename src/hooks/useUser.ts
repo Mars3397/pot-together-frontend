@@ -5,7 +5,6 @@ import { useAuth } from "provider/AuthProvider";
 
 export const useSignup = () => {
     const navigate = useNavigate();
-    const { setToken } = useAuth();
 
     return useMutation(Signup, {
         onSuccess: (data) => {
@@ -20,10 +19,12 @@ export const useSignup = () => {
 
 export const useLogin = () => {
     const navigate = useNavigate();
+    const { setToken } = useAuth();
 
     return useMutation(Login, {
         onSuccess: (data) => {
             console.log(data);
+            setToken(data.data.token); // set token to local storage
             navigate("/");
         },
         onError: (error) => {

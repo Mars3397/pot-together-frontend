@@ -1,5 +1,12 @@
 import axios from "axios";
-import { createContext, useContext, useEffect, useMemo, useState, ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+  ReactNode,
+} from "react";
 
 interface AuthContextProps {
   token: string | null;
@@ -19,7 +26,9 @@ interface AuthProviderProps {
 
 const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   // State to hold the authentication token
-  const [token, setToken_] = useState<string | null>(localStorage.getItem("token"));
+  const [token, setToken_] = useState<string | null>(
+    localStorage.getItem("token")
+  );
 
   // Function to set the authentication token
   const setToken = (newToken: string | null) => {
@@ -37,17 +46,18 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   }, [token]);
 
   // Memoized value of the authentication context
-const contextValue = useMemo(() => ({
-    token,
-    setToken,
-}), [token]);
+  const contextValue = useMemo(
+    () => ({
+      token,
+      setToken,
+    }),
+    [token]
+  );
 
-// Provide the authentication context to the children components
-return (
-    <AuthContext.Provider value={contextValue}>
-        {children}
-    </AuthContext.Provider>
-);
+  // Provide the authentication context to the children components
+  return (
+    <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>
+  );
 };
 
 export const useAuth = (): AuthContextProps => {

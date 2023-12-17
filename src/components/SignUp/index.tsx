@@ -46,7 +46,7 @@ const SignUp = () => {
         signupMutation.mutate({
             name: nameValue,
             email: mailValue,
-            passwd: passwdValue,
+            password: passwdValue,
             avatar: currentAvatar
         });
     }
