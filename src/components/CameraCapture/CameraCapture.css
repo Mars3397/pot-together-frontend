@@ -1,0 +1,42 @@
+#webcam {
+  width: 100%;
+  background-color: #f9f9ee;
+  min-height: 100vh;
+
+  .content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+
+    .page-title {
+      display: flex;
+      .text-wrapper {
+        margin: 0 0.2rem 0 0.2rem;
+        font-size: 2.4rem;
+      }
+    }
+
+    .capture-window {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: center;
+      border: 3px solid #d2d000;
+      border-radius: 1rem;
+      overflow: hidden;
+    }
+
+    .button-wrapper {
+      display: flex;
+    }
+
+    .icon-button {
+      margin-top: 1.5rem;
+      width: 4rem;
+      height: 4rem;
+      color: #d2d000;
+    }
+  }
+}
