@@ -1,14 +1,16 @@
 import "./CameraCapture.css";
 import Webcam from "react-webcam";
-import { useRef, useState, useCallback } from "react"; //
+import { useRef, useState, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import CircleIcon from "@mui/icons-material/Circle";
 import RestartAltIcon from "@mui/icons-material/RestartAlt";
 import DoneIcon from "@mui/icons-material/Done";
-import starIcon from "assets/orange-star.svg";
+import yellowStar from "assets/yellow-star.svg";
 
 export const CameraCapture = () => {
   const webcamRef = useRef(null);
   const [imgSrc, setImgSrc] = useState(null);
+  const navigate = useNavigate();
 
   // You may notice that the height and the width are reversed,
   // This is an unknown bug that I have not been able to fix.
@@ -37,9 +39,9 @@ export const CameraCapture = () => {
     <div id="webcam">
       <div className="content">
         <div className="page-title">
-          <img src={starIcon} alt="" />
+          <img src={yellowStar} alt="" />
           <div className="text-wrapper">Take a photo</div>
-          <img src={starIcon} alt="" />
+          <img src={yellowStar} alt="" />
         </div>
         <div className="capture-window">
           {imgSrc ? (
@@ -55,7 +57,12 @@ export const CameraCapture = () => {
         {imgSrc ? (
           <div className="button-wrapper">
             <RestartAltIcon className="icon-button" onClick={retake} />
-            <DoneIcon className="icon-button" />
+            <DoneIcon
+              className="icon-button"
+              onClick={() => {
+                navigate("/record", { state: { image: imgSrc } });
+              }}
+            />
           </div>
         ) : (
           <CircleIcon className="icon-button" onClick={capture} />

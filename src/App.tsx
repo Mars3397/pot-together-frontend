@@ -1,16 +1,18 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import AuthProvider from 'provider/AuthProvider';
-import { ProtectedRoute } from 'authentication/ProtectedRoute';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import AuthProvider from "provider/AuthProvider";
+import { ProtectedRoute } from "authentication/ProtectedRoute";
 
-// Components 
-import Welcome from 'components/Welcome'
-import SignUp from 'components/SignUp'
-import Login from 'components/Login'
-import Overview from 'components/Overview'
-import Room from 'components/Room'
-import CreatePot from 'components/CreatePot'
-import SearchPot from 'components/SearchPot'
-import Choose from 'components/Choose'
+// Components
+import Welcome from "components/Welcome";
+import SignUp from "components/SignUp";
+import Login from "components/Login";
+import Overview from "components/Overview";
+import Room from "components/Room";
+import CreatePot from "components/CreatePot";
+import SearchPot from "components/SearchPot";
+import Choose from "components/Choose";
+import CameraCapture from "components/CameraCapture";
+import Record from "components/Record";
 
 const App = () => {
   return (
@@ -26,11 +28,13 @@ const App = () => {
             <Route path="/CreatePot" element={<CreatePot />} />
             <Route path="/SearchPot" element={<SearchPot />} />
             <Route path="/room/:roomId/Choose" element={<Choose />} />
+            <Route path="/CameraCapture" element={<CameraCapture />} />
+            <Route path="/Record" element={<Record />} />
           </Route>
         </Routes>
       </Router>
     </AuthProvider>
-  )
-}
+  );
+};
 
-export default App
+export default App;
