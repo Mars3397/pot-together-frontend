@@ -1,17 +1,15 @@
 import SwipeableViews from "react-swipeable-views";
-import IngredientsBox from "./IngredientsBox";
+import IngredientsBox, {IngredientsBoxProps} from "./IngredientsBox";
 import { useState } from "react";
 import MobileStepper from "@mui/material/MobileStepper";
 
 interface IngredientsViewsProps {
-  colorList: string[];
-  timeList: string[];
-  imagesList: string[][];
-}
+  views: IngredientsBoxProps[];
+};
 
 export const IngredientsViews = (props: IngredientsViewsProps) => {
-  const { colorList, timeList, imagesList } = props;
-  const maxSteps = timeList.length;
+  const { views } = props;
+  const maxSteps = views.length;
   const [activeStep, setActiveStep] = useState(0);
 
   const handleStepChange = (step: number) => {
@@ -27,15 +25,15 @@ export const IngredientsViews = (props: IngredientsViewsProps) => {
         style={{
           height: "18rem",
           borderRadius: "10px",
-          border: `5px solid ${colorList[activeStep]}`,
+          border: `5px solid ${views[activeStep].color}`,
         }}
       >
-        {timeList.map((time, index) => {
+        {views.map((view, index) => {
           return (
             <IngredientsBox
-              color={colorList[index]}
-              time={time}
-              images={imagesList[index]}
+              color={view.color}
+              time={view.time}
+              images={view.images}
             />
           );
         })}
