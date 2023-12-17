@@ -1,6 +1,6 @@
 import './IngredientsViews.css';
 
-interface IngredientsBoxProps {
+export interface IngredientsBoxProps {
     color: string;
     time: string;
     images: string[];
