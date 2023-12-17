@@ -1,7 +1,5 @@
 import axios from "axios";
-import API, {
-    SimpleRoomInfo
-} from "api";
+import API from "api";
 
 /** 
  * structure for create room data
