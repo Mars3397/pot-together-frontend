@@ -1,4 +1,4 @@
-import OrangeMan from 'assets/orange-man.svg';
+import ChefCatWithSpoon from 'assets/chef-cat-with-spoon.svg';
 import OrangeStar from 'assets/orange-star.svg';
 import SeperateLine from 'assets/line.svg';
 import Pot from 'assets/pot.svg';
@@ -23,7 +23,7 @@ const Welcome = () => {
                 <img id="seperate-line" src={SeperateLine} alt="" />
                 {/* <button onClick={handleLogin} id="login-button">LOGIN</button> */}
                 <div className="decoration">
-                    <img id="orange-man" src={OrangeMan} alt="" />
+                    <img id="chef-cat-with-spoon" src={ChefCatWithSpoon} alt="" />
                     <img id="pot" src={Pot} alt="" />
                     <img id="orange-star1" src={OrangeStar} alt="" />
                     <img id="orange-star2" src={OrangeStar} alt="" />

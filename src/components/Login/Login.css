@@ -5,6 +5,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-x: hidden;
 
     .content {
         width: 24.5rem;
@@ -17,27 +18,26 @@
     .page-title {
         color: #000000;
         font-size: 2.5rem;
-        font-weight: 400;
+        font-weight: normal;
         letter-spacing: 0;
         line-height: normal;
         text-align: center;
         white-space: nowrap;
         margin-top: 12rem;
-        z-index: 2;
     }
 
     #seperate-line {
         margin-bottom: 4rem;
     }
 
-    #orange-man {
-        width: 10rem;
-        height: 12rem;
+    #chef-cat {
+        width: 18rem;
+        height: 18rem;
+        transform: rotate(-10deg);
         position: absolute;
-        top: 3rem;
-        left: 14rem;
+        top: 0rem;
+        left: 12rem;
         object-fit: cover;
-        z-index: 1;
     }
 
     #orange-star1 {
@@ -78,5 +78,21 @@
 
     #login-button:active {
         filter: brightness(75%);
+    }
+
+    .signup-wrapper {
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .signup-hint {
+            color: #35413C;
+        }
+
+        .signup-link {
+            color: #EF7753;
+        }
     }
 }

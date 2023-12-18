@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Menu from './Menu'
+import { SimpleRoomInfo } from 'api'
 import IconButton from '@mui/material/IconButton'
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded'
 import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded'
@@ -7,10 +8,11 @@ import './Header.css'
 
 interface HeaderProps {
     title: string
+    roomData: SimpleRoomInfo[]
 }
 
 const Header = (props: HeaderProps) => {
-    const { title } = props
+    const { title, roomData } = props
 
     const [openMenu, setOpenMenu] = useState(false)
 
@@ -30,6 +32,7 @@ const Header = (props: HeaderProps) => {
                 />
             </IconButton>
             <Menu
+                roomData={roomData}
                 openMenu={openMenu}
                 setOpenMenu={setOpenMenu}
             />
