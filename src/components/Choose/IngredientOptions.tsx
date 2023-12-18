@@ -30,19 +30,19 @@ const IngredientOptions = (props: IngredientOptionsProps) => {
                     {IngredientTimer[groupId]}
             </span>
             <div className="ingredients-content">
-                <Link className="ingredients-item" to={`/room/${roomId}/cooking`}>
+                <Link className="ingredients-item" to={`/room/${roomId}/cooking/in-progress`}>
                     <img src={Mushrooms} alt="Mushrooms" className="ingredients-item"/>
                 </Link>
-                <Link className="ingredients-item" to={`/room/${roomId}/cooking`}>
+                <Link className="ingredients-item" to={`/room/${roomId}/cooking/in-progress`}>
                     <img src={Mushrooms} alt="Mushrooms" className="ingredients-item"/>
                 </Link>
-                <Link className="ingredients-item" to={`/room/${roomId}/cooking`}>
+                <Link className="ingredients-item" to={`/room/${roomId}/cooking/in-progress`}>
                     <img src={Mushrooms} alt="Mushrooms" className="ingredients-item"/>
                 </Link>
-                <Link className="ingredients-item" to={`/room/${roomId}/cooking`}>
+                <Link className="ingredients-item" to={`/room/${roomId}/cooking/in-progress`}>
                     <img src={Mushrooms} alt="Mushrooms" className="ingredients-item"/>
                 </Link>
-                <Link className="ingredients-item" to={`/room/${roomId}/cooking`}>
+                <Link className="ingredients-item" to={`/room/${roomId}/cooking/in-progress`}>
                     <img src={Mushrooms} alt="Mushrooms" className="ingredients-item"/>
                 </Link>
             </div>
