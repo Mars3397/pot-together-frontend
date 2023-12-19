@@ -6,7 +6,7 @@ import Pot from 'assets/RadPot.svg';
 import Mushrooms from 'assets/Mushrooms.svg';
 import Star from 'assets/Star.svg';
 import Logo from 'assets/Logo.svg'
-import SharePage from 'assets/SharePage.svg'
+// import SharePage from 'assets/SharePage.svg'
 // import domtoimage from 'dom-to-image';
 import './Cooking.css';
 

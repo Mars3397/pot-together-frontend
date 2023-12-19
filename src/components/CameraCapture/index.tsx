@@ -1,7 +1,7 @@
 import "./CameraCapture.css";
 import Webcam from "react-webcam";
 import { useRef, useState, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation, useParams } from "react-router-dom";
 import CircleIcon from "@mui/icons-material/Circle";
 import RestartAltIcon from "@mui/icons-material/RestartAlt";
 import DoneIcon from "@mui/icons-material/Done";
@@ -11,6 +11,9 @@ export const CameraCapture = () => {
   const webcamRef = useRef(null);
   const [imgSrc, setImgSrc] = useState(null);
   const navigate = useNavigate();
+  const location = useLocation();
+  const totalTime = location.state.totalTime;
+  const { roomId } = useParams();
 
   // You may notice that the height and the width are reversed,
   // This is an unknown bug that I have not been able to fix.
@@ -60,7 +63,7 @@ export const CameraCapture = () => {
             <DoneIcon
               className="icon-button"
               onClick={() => {
-                navigate("/record", { state: { image: imgSrc } });
+                navigate(`/room/${roomId}/record`, { state: { image: imgSrc, time: totalTime } });
               }}
             />
           </div>

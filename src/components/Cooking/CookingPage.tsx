@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
-import { Link, useParams, useNavigate } from "react-router-dom"
+import { useParams, useNavigate, useLocation } from "react-router-dom"
 import { formatTime } from '../../utils';
 import Pot from 'assets/RadPot.svg';
 import Mushrooms from 'assets/Mushrooms.svg';
 import Star from 'assets/Star.svg';
 import './Cooking.css';
 
-const initTime = 5; // HINT: initTime (sec)
+// const initTime = 5; // HINT: initTime (sec)
 const ingredient = 'Mushroom';
 const contentList = [
     `You add a ${ingredient} to the pot!`,
@@ -18,8 +18,10 @@ var totalTime = 0
 
 const CookingPage = () => {
     const navigate = useNavigate()
+    const location = useLocation();
+    const initTime = location.state.initTime;
     const { roomId } = useParams()
-    const [targetTime, setTargetTime] = useState(initTime);
+    const [targetTime, setTargetTime] = useState(5);
     const [contentIndex, setContentIndex] = useState(0);
     const [isFinish, setIsFinish] = useState(false);
     const [isOvertime, setIsOvertime] = useState(false);
@@ -28,7 +30,8 @@ const CookingPage = () => {
     const [countdown, setCountdown] = useState(10);
 
     const sendParams = () => {
-        navigate(`/room/${roomId}/cooking/done`, { state: {totalTime}})
+        // navigate(`/room/${roomId}/cooking/done`, { state: {totalTime}})
+        navigate(`/room/${roomId}/CameraCapture`, { state: {totalTime}})
     }
     useEffect(() => {
         const requestPermission = (DeviceOrientationEvent as any).requestPermission;
@@ -113,7 +116,7 @@ const CookingPage = () => {
                 totalTime = initTime - Math.abs(targetTime)
             }
         }
-    }, [isFinish, isOvertime, targetTime]);
+    }, [initTime, isFinish, isOvertime, targetTime]);
 
     return (
         <div id="cooking">

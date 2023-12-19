@@ -1,15 +1,19 @@
 import "./Record.css";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 export const Record = () => {
+  const navigate = useNavigate()
   const location = useLocation();
+  const { roomId } = useParams()
   const image = location.state?.image;
+  const totalTime = location.state?.time;
   const [postContent, setPostContent] = useState("");
 
   const handleSaveClicked = () => {
     console.log("image (encoded in base64): ", image);
     console.log("post content: ", postContent);
+    navigate(`/room/${roomId}/CameraCapture`, { state: {totalTime}})
   };
 
   return (

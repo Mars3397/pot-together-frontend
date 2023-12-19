@@ -1,11 +1,11 @@
-import { Link, useParams } from "react-router-dom"
-// import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from "react-router-dom"
 import Mushrooms from 'assets/Mushrooms.svg'
 
 import './Choose.css'
 
 interface IngredientOptionsProps {
-    groupId: number
+    groupId: number,
+    initTime: number
 }
 
 const IngredientColor = ["#BABEF4", "#FFCDBE", "#D2D000"]
@@ -14,7 +14,12 @@ const IngredientTimer = ["30 min", "1 hr", "1 hr 30 min"]
 
 const IngredientOptions = (props: IngredientOptionsProps) => {
     const { roomId } = useParams()
-    const { groupId } = props
+    const { groupId, initTime } = props
+    const navigate = useNavigate()
+    const sendParams = (initTime: number) => {
+        initTime = initTime * 60;
+        navigate(`/room/${roomId}/cooking/in-progress`, { state: {initTime}});
+    }
 
     const containerStyle = {
         borderColor: IngredientColor[groupId],
@@ -30,21 +35,21 @@ const IngredientOptions = (props: IngredientOptionsProps) => {
                     {IngredientTimer[groupId]}
             </span>
             <div className="ingredients-content">
-                <Link className="ingredients-item" to={`/room/${roomId}/cooking/in-progress`}>
+                <div className="ingredients-item" onClick={() => {sendParams(initTime)}}>
                     <img src={Mushrooms} alt="Mushrooms" className="ingredients-item"/>
-                </Link>
-                <Link className="ingredients-item" to={`/room/${roomId}/cooking/in-progress`}>
+                </div>
+                <div className="ingredients-item" onClick={() => {sendParams(initTime)}}>
                     <img src={Mushrooms} alt="Mushrooms" className="ingredients-item"/>
-                </Link>
-                <Link className="ingredients-item" to={`/room/${roomId}/cooking/in-progress`}>
+                </div>
+                <div className="ingredients-item" onClick={() => {sendParams(initTime)}}>
                     <img src={Mushrooms} alt="Mushrooms" className="ingredients-item"/>
-                </Link>
-                <Link className="ingredients-item" to={`/room/${roomId}/cooking/in-progress`}>
+                </div>
+                <div className="ingredients-item" onClick={() => {sendParams(initTime)}}>
                     <img src={Mushrooms} alt="Mushrooms" className="ingredients-item"/>
-                </Link>
-                <Link className="ingredients-item" to={`/room/${roomId}/cooking/in-progress`}>
+                </div>
+                <div className="ingredients-item" onClick={() => {sendParams(initTime)}}>
                     <img src={Mushrooms} alt="Mushrooms" className="ingredients-item"/>
-                </Link>
+                </div>
             </div>
         </div>
     )
