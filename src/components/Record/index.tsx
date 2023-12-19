@@ -13,7 +13,8 @@ export const Record = () => {
   const handleSaveClicked = () => {
     console.log("image (encoded in base64): ", image);
     console.log("post content: ", postContent);
-    navigate(`/room/${roomId}/CameraCapture`, { state: {totalTime}})
+    navigate(`/room/${roomId}/cooking/done`, { state: {totalTime}})
+
   };
 
   return (
