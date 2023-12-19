@@ -1,4 +1,4 @@
-const backendBaseUrl = 'http://pottogether.store:5678';
+const backendBaseUrl = 'https://pottogether.store';
 
 const API = {
     signup: `${backendBaseUrl}/users/signup`,
