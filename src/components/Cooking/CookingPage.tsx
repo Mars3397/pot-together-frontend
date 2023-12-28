@@ -19,9 +19,9 @@ var totalTime = 0
 const CookingPage = () => {
     const navigate = useNavigate()
     const location = useLocation();
-    const initTime = location.state.initTime;
+    const initTime: number = (location.state.initTime || 0);
     const { roomId } = useParams()
-    const [targetTime, setTargetTime] = useState(5);
+    const [targetTime, setTargetTime] = useState(initTime);
     const [contentIndex, setContentIndex] = useState(0);
     const [isFinish, setIsFinish] = useState(false);
     const [isOvertime, setIsOvertime] = useState(false);

@@ -1,107 +1,99 @@
 import { formatTime } from 'utils';
+import { useState, useEffect } from 'react';
 import { Link, useParams, useLocation  } from "react-router-dom"
 import IconButton from '@mui/material/IconButton'
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
-import Pot from 'assets/RadPot.svg';
 import Mushrooms from 'assets/Mushrooms.svg';
 import Star from 'assets/Star.svg';
 import Logo from 'assets/Logo.svg'
-// import SharePage from 'assets/SharePage.svg'
-// import domtoimage from 'dom-to-image';
+import SharePage from 'assets/SharePage.svg'
 import './Cooking.css';
 
-// const totalTime = 20;
-// const templeteImg = `<div><img src={SharePage} /></div>`
 
-const CookingDone = () => {
+const CookingDone: React.FC = () => {
     const location = useLocation();
-    const totalTime = location.state.totalTime;
+    const totalTime = location.state?.totalTime;
     const { roomId } = useParams();
+    const [modifiedSvg, setModifiedSvg] = useState<string | null>(null);
 
-      const handleShare = async () => {
-        try {
-            // Create a canvas and draw your cooking image on it
-            const canvas = document.createElement('canvas');
-            const ctx = canvas.getContext('2d');
-            if (!ctx) {
-                throw new Error('Canvas context is null');
-            }
+    useEffect(() => {
+        const svgObject = document.getElementById('SharePage') as HTMLObjectElement;
         
-            const ingredientImg = new Image();
-            const logoImg = new Image();
-        
-            ingredientImg.src = Mushrooms;
-            logoImg.src = Logo;
-      
-             // Ensure images are loaded before drawing
-           await Promise.all([ingredientImg, logoImg].map(img => new Promise(resolve => img.onload = resolve)));
-            // Set canvas size based on image size
-            canvas.width = 320; // Adjust to your desired width
-            canvas.height = 320; 
-            ctx.fillStyle = '#F9F9EE'; // Adjust background color
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            // Draw totalTime at the top-center
-            ctx.font = '20px Jua'; // Adjust font size and style
-            ctx.fillStyle = '#000'; // Adjust text color
-            ctx.textAlign = 'center';
-            ctx.fillText('Pot Together', canvas.width / 2, 30);
-            ctx.fillText(`Total Time: ${formatTime(totalTime)}`, canvas.width / 2, 70);
-        
-            // Draw images on the canvas
-            ctx.drawImage(ingredientImg, 40, 90);
-            ctx.drawImage(logoImg, 25, 60);
-        
-            // Convert the canvas content to a Blob
-            canvas.toBlob(async (blob) => {
-                if (!blob) {
-                throw new Error('Blob is null');
+        const handleLoad = () => {
+            if (svgObject !== null && svgObject.contentDocument) {
+                const svgDoc = svgObject.contentDocument;
+                const s = svgDoc.querySelector('svg');
+                const tspanElement = svgDoc.querySelector('tspan');
+    
+            if (s && tspanElement) {
+                tspanElement.textContent = formatTime(totalTime);
+                tspanElement.setAttribute('style', 'font-weight: bold');
+                setModifiedSvg(new XMLSerializer().serializeToString(svgDoc))
                 }
-        
-                const shareData = {
-                // title: 'Let’s Cook Together!',
-                // text: `I spent ${formatTime(totalTime)} cooking in the Pot.`,
-                // url: `${window.location.origin}/room/${roomId}`,
-                files: [new File([blob], 'share.jpeg', { type: 'image/jpeg' })],
-                };
-        
-                if (navigator.share) {
-                try {
-                    await navigator.share(shareData);
-                } catch (error) {
-                    console.log('Cancel Share');
-                }
-                }
-            }, 'image/jpeg', 1.0);
-            } catch (error) {
-            console.error('Error sharing:', error);
             }
         };
-    // const handleShare = async () => {
-    //     try {
-    //         const cookingContainer = document.getElementById('cooking');
+    
+        svgObject?.addEventListener('load', handleLoad);
 
-    //         if (!cookingContainer) {
-    //             throw new Error('Cooking container not found');
-    //         }
-    //         cookingContainer.style.fontFamily = 'Jua';
-    //         const blob = await domtoimage.toBlob(cookingContainer);
+        return () => {
+            svgObject?.removeEventListener('load', handleLoad);
+        };
+      }, [totalTime]);
 
-    //         const shareData = {
-    //             files: [new File([blob], 'share.png', { type: 'image/png' })],
-    //         };
+    const handleShare = async () => {
+        try {
+            if (modifiedSvg) {
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                if (!ctx) {
+                    throw new Error('Canvas context is null');
+                }
+        
+                // Ensure SVG is loaded before drawing
+                const svgBlob = new Blob([modifiedSvg], { type: 'image/svg+xml' });
+                const svgUrl = URL.createObjectURL(svgBlob);
+                const svgImage = new Image();
+                
+                const ratio = window.devicePixelRatio || 1;
+                // Set canvas size based on SVG size
+                canvas.width = 390 * ratio;
+                canvas.height = 732 * ratio;
+                canvas.style.width = '390px';
+                canvas.style.height = '732px';
+        
+                // Draw SVG on the canvas
+                await new Promise(resolve => {
+                    svgImage.onload = resolve;
+                    svgImage.src = svgUrl;
+                });
 
-    //         if (navigator.share) {
-    //             try {
-    //                 await navigator.share(shareData);
-    //             } catch (error) {
-    //                 console.log('Cancel Share');
-    //             }
-    //         }
-    //     } catch (error) {
-    //         console.error('Error sharing:', error);
-    //     }
-    // };
-
+                ctx.drawImage(svgImage, 0, 0, canvas.width, canvas.height);
+                ctx.scale(ratio, ratio)
+                // Convert the canvas content to a Blob
+                canvas.toBlob(async (blob) => {
+                    if (!blob) {
+                        throw new Error('Blob is null');
+                    }
+            
+                    const shareData = {
+                        files: [new File([blob], 'share.jpeg', { type: 'image/jpeg' })],
+                    };
+            
+                    if (navigator.share) {
+                        try {
+                            await navigator.share(shareData);
+                        } catch (error) {
+                            console.log('Cancel Share');
+                        }
+                    }
+                }, 'image/jpeg', 1.0);
+          } else {
+                console.error('Modified SVG is undefined');
+          }
+        } catch (error) {
+            console.error('Error sharing:', error);
+        }
+      };
 
     return(
         <div id="cooking">
@@ -113,15 +105,9 @@ const CookingDone = () => {
                 <object type="image/svg+xml" data={Mushrooms} aria-label="Mushrooms" className="cooking-ingredient">
                     <img src={Mushrooms} alt="" />
                 </object>
-                <img
-                    className="cooking-pot"
-                    src={Pot}
-                    alt=""
-                />
-                {/* <object type="image/svg+xml" data={Logo} aria-label="LogoCat" className="cooking-cat">
+                <object type="image/svg+xml" data={Logo} aria-label="LogoCat" className="cooking-cat">
                     <img src={Logo} alt="" />
-                </object> */}
-                {/* <img className="cooking-star1" src={Star} alt="" /> */}
+                </object>
                 <img className="cooking-star4" src={Star} alt="" />
                 <img className="cooking-star3" src={Star} alt="" />
             </div>
@@ -142,6 +128,14 @@ const CookingDone = () => {
                     />
                 </IconButton>
             </div>
+
+            <object 
+                type="image/svg+xml" 
+                data={SharePage} 
+                aria-label="SharePage" 
+                id='SharePage' 
+                style={{ position: 'absolute', left: '-9999px', top: '-9999px', width: '1px', height: '1px' }}>
+            </object>
         </div>
     );
 };
