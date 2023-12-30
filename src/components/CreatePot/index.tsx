@@ -28,7 +28,7 @@ const CreatePot = () => {
         }
 
         createRoomMutation.mutate({
-            name: "test",
+            name: name,
             memberLimit: memberLimit,
             privacy: privacy,
             category: category.join("|")

@@ -6,15 +6,20 @@ import Members from './Members'
 import GroupAnalysis from './GroupAnalysis'
 import BottomMenu from './BottomMenu'
 import { useAllUserRooms } from 'hooks/useRoom'
-import CircularProgress from '@mui/material/CircularProgress';
 import './Room.css'
+import { CircularProgress } from '@mui/material'
+import { Link } from 'react-router-dom';
 
 const Room = () => {
     const { roomId } = useParams()
     const {
         data: roomData,
     } = useAllUserRooms()
-
+    
+    const dishUp = () => {
+        console.log("dish up");
+        // TODO: Del room
+    }
     return (
         <div id="room">
             {roomData === undefined ? (
@@ -37,9 +42,10 @@ const Room = () => {
                         />
                         <IngredientsList title="Now Cooking..." />
                         <IngredientsList title="Done!" />
-                        <div id='dish-up-btn'>
+                        {/* <div id='dish-up-btn' onClick={}>
                             DISH UP
-                        </div>
+                        </div> */}
+                        <Link id='dish-up-btn' to="/" onClick={dishUp}>DISH UP</Link>
                     </div>
                     <BottomMenu />
                 </>
