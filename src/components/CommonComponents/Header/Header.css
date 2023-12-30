@@ -10,6 +10,101 @@
     }
 }
 
+#level-btn {
+    width: 2rem;
+    height: 2rem;
+    background-color: #7D7D2D;
+    border: 0.2rem solid #D2D000;
+    border-radius: 50%;
+    color: #F9F9EE;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#level-dialog {
+    .dialog-container {
+        width: 100%;
+        height: calc(100% - 1.5rem);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        margin: .5rem 0 1rem;
+
+        .dialog-header {
+            color: #EF7754;
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-top: 0.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .progress-bar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+            width: 8rem;
+            height: 8rem;
+            border-radius: 50%;
+            margin: 1rem 0;
+            background:
+                radial-gradient(closest-side, white 79%, transparent 80% 100%),
+                conic-gradient(#EF7754 75%, #FFCDBE 0);
+        }
+
+        .progress-bar::after {
+            content: '15';
+        }
+
+        .total-cooking-time {
+            border-radius: 10px;
+            background: #F6EDEA;
+            margin: 1rem 0;
+            width: 80%;
+
+            .text {
+                width: 100%;
+                margin-top: 0.2rem;
+                margin-left: 0.5rem;
+                font-size: 18px;
+            }
+
+            .time {
+                width: 100%;
+                text-align: center;
+                font-size: 36px;
+                font-weight: 400;
+                letter-spacing: 3.6px;
+                margin: 1rem 0;
+            }
+        }
+
+        .next-level-info {
+            width: 80%;
+            margin-bottom: 0.1rem;
+
+            .value {
+                color: #EF7754;
+            }
+
+            .image {
+                position: absolute;
+                width: 1.5rem;
+                height: 1.5rem;
+                margin-left: 0.5rem;
+                filter: grayscale(100%);
+            }
+        }
+    }
+}
+
 #menu {
     width: 17rem;
     height: 100vh;

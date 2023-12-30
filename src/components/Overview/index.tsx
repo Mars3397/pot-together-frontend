@@ -26,7 +26,7 @@ const Overview = () => {
                 }} />
             ) : (
                 <>
-                    <Header title='Overview' roomData={roomData.data} />
+                    <Header isOverview title='Overview' roomData={roomData.data} />
                     <div className='content'>
                         <Calendar />
                         <IngredientsList title="Today I Cooked ..." />
