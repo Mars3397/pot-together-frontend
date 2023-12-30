@@ -14,6 +14,7 @@ import Choose from "components/Choose";
 import CameraCapture from "components/CameraCapture";
 import Record from "components/Record";
 import Cooking from 'components/Cooking'
+import Setting from "components/Setting";
 
 const App = () => {
   return (
@@ -32,6 +33,7 @@ const App = () => {
             <Route path='/room/:roomId/Cooking/:status' element={<Cooking />} />
             <Route path="/room/:roomId/CameraCapture" element={<CameraCapture />} />
             <Route path="/room/:roomId/Record" element={<Record />} />
+            <Route path="/room/setting/:roomId" element={<Setting />} />
           </Route>
         </Routes>
       </Router>
