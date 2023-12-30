@@ -1,0 +1,26 @@
+.ingredients-views {
+  width: 15rem;
+  height: 18rem;
+  position: relative;
+
+  .ingredients-box {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 1rem;
+
+    .time-text {
+      font-size: 1.5rem;
+      font-weight: normal;
+    }
+
+    .icon-container {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+
+      .icon {
+        margin: .6rem;
+      }
+    }
+  }
+}
