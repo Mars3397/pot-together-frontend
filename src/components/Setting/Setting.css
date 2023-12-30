@@ -6,4 +6,63 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+
+    .invite-title {
+        color: #000;
+        text-align: center;
+        font-size: 2rem;
+        margin: 1.5rem 0;
+    }
+
+    .link-container {
+        margin: 1.5rem 0;
+    }
+
+    .link {
+        color: #000;
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: space-between;
+        max-width: 300px;
+        margin: 1.5rem 0;
+    }
+
+    .btn {
+        margin: 0 0.75rem;
+        padding: 0.75rem 0;
+        width: 7rem;
+        border: none;
+        border-radius: 10px;
+        background: #7F84C5;
+        color: #FFF;
+        text-align: center;
+        font-family: Jua;
+        font-size: 1.5rem;
+    }
+
+    .leave-btn {
+        position: absolute;
+        bottom: 5vh;
+        padding: 0.75rem 0;
+        width: 10rem;
+        border: none;
+        border-radius: 10px;
+        background: #D2D000;
+        color: #36423C;
+        text-align: center;
+        font-family: Jua;
+        font-size: 1.5rem;
+    }
+
+    #chef-cat {
+        width: 14rem;
+        height: 14rem;
+        transform: rotate(14.925deg);
+        position: absolute;
+        bottom: 5rem;
+        left: 12rem;
+        object-fit: cover;
+    }
 }
