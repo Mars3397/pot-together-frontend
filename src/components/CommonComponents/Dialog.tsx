@@ -4,16 +4,18 @@ import IconButton from '@mui/material/IconButton'
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded'
 
 interface DialogProps {
+    id: string
     open: boolean
     handleClose: () => void
     children: React.ReactNode
 }
 
 const Dialog = (props: DialogProps) => {
-    const { open, handleClose, children } = props
+    const { id, open, handleClose, children } = props
 
     return (
         <MuiDialog
+            id={id}
             open={open}
             onClose={handleClose}
         >

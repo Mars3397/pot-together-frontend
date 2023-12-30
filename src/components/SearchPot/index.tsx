@@ -161,6 +161,7 @@ const SearchPot = () => {
                 ))}
             </div>
             <Dialog
+                id='search-pot-dialog'
                 open={openDialog}
                 handleClose={() => setOpenDialog(false)}
             >
