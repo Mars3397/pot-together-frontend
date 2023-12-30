@@ -19,7 +19,7 @@ const Header = (props: HeaderProps) => {
     const [openMenu, setOpenMenu] = useState(false)
 
     const handleSettingClick = () => {
-        navigate(`/setting/${roomId}`)
+        // navigator(`/setting`)
     }
 
     return (

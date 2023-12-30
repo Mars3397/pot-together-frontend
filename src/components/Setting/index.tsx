@@ -1,3 +1,4 @@
+import { useParams } from "react-router-dom"
 import ChefCat from 'assets/chef-cat.svg';
 import HeaderWithBack from "components/CommonComponents/HeaderWithBack"
 import { ReactComponent as Line } from "assets/line.svg"
@@ -5,6 +6,7 @@ import QRCode from "react-qr-code";
 import "./Setting.css"
 
 const Setting = () => {
+    // const { roomId } = useParams()
     // set const value url
     const url = "https://pot-together.vercel.app/"
 
