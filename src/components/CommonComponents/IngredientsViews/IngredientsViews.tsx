@@ -1,12 +1,17 @@
 import SwipeableViews from "react-swipeable-views";
-import IngredientsBox, {IngredientsBoxProps} from "./IngredientsBox";
+import IngredientsBox, { IngredientsBoxProps } from "./IngredientsBox";
 import { useState } from "react";
 import MobileStepper from "@mui/material/MobileStepper";
 
 // To use this component, you need to pass in an array of IngredientsBoxProps, the example is shown below:
-/* 
+/*
+import Ingredient0 from "assets/ingredients/ingredient-0.svg";
+import Ingredient1 from "assets/ingredients/ingredient-1.svg";
+import Ingredient2 from "assets/ingredients/ingredient-2.svg";
+import Ingredient3 from "assets/ingredients/ingredient-3.svg";
+import Ingredient4 from "assets/ingredients/ingredient-4.svg";
 
-const views: IngredientsBoxProps[] = [
+const views = [
   {
       color: '#BABEF4',
       time: '30 min',
@@ -30,13 +35,12 @@ return (
 
 interface IngredientsViewsProps {
   views: IngredientsBoxProps[];
-};
+}
 
 export const IngredientsViews = (props: IngredientsViewsProps) => {
   const { views } = props;
   const maxSteps = views.length;
   const [activeStep, setActiveStep] = useState(0);
-
 
   return (
     <div className="ingredients-views">
@@ -65,11 +69,11 @@ export const IngredientsViews = (props: IngredientsViewsProps) => {
         steps={maxSteps}
         sx={{
           "& .MuiMobileStepper-dot": {
-            backgroundColor: "#D1D1D1"
+            backgroundColor: "#D1D1D1",
           },
           "& .MuiMobileStepper-dotActive": {
-            backgroundColor: "#7D7D2D"
-          }
+            backgroundColor: "#7D7D2D",
+          },
         }}
         position="static"
         activeStep={activeStep}
