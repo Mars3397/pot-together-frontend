@@ -16,6 +16,26 @@
         background-color: white;
         border: #D2D000 .2rem solid;
         border-radius: 1.6rem;
+
+        .highlight-days-1 {
+            background-color: #ECECB8;
+        }
+
+        .highlight-days-2 {
+            background-color: #E3E27A;
+        }
+
+        .highlight-days-3 {
+            background-color: #D2D000;
+        }
+
+        .highlight-days-4 {
+            background-color: #BAB80A;
+        }
+
+        .highlight-days-5 {
+            background-color: #9B9A02;
+        }
     }
 
     #analysis {
