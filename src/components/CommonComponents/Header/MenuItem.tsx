@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 interface ItemProps {
     name: string
-    classN: 'item' | 'itemO' | 'itemP'
+    classN: 'item' | 'itemCommon itemO' | 'itemCommon itemP'
     link: string
     setOpenMenu: React.Dispatch<React.SetStateAction<boolean>>
     info?: React.ReactNode

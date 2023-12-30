@@ -23,7 +23,7 @@ const Menu = (props: MenuProps) => {
                 <div className='title'>Let's Pot Together!</div>
                 <MenuItem
                     name='Overview'
-                    classN='itemO'
+                    classN='itemCommon itemO'
                     link='/'
                     setOpenMenu={setOpenMenu}
                 />
@@ -45,7 +45,7 @@ const Menu = (props: MenuProps) => {
                 }
                 <MenuItem
                     name='Create Pot'
-                    classN='itemP'
+                    classN='itemCommon itemP'
                     link='/CreatePot'
                     setOpenMenu={setOpenMenu}
                     info={
@@ -57,7 +57,7 @@ const Menu = (props: MenuProps) => {
                 />
                 <MenuItem
                     name='Search Pot'
-                    classN='itemP'
+                    classN='itemCommon itemP'
                     link='/SearchPot'
                     setOpenMenu={setOpenMenu}
                     info={
