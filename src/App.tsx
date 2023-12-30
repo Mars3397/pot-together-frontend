@@ -24,7 +24,7 @@ const App = () => {
           <Route path="/welcome" element={<Welcome />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
-          <Route element={<ProtectedRoute />}>
+          {/* <Route element={<ProtectedRoute />}> */}
             <Route path="/" element={<Overview />} />
             <Route path="/room/:roomId" element={<Room />} />
             <Route path="/CreatePot" element={<CreatePot />} />
@@ -34,7 +34,7 @@ const App = () => {
             <Route path="/room/:roomId/CameraCapture" element={<CameraCapture />} />
             <Route path="/room/:roomId/Record" element={<Record />} />
             <Route path="/room/setting/:roomId" element={<Setting />} />
-          </Route>
+          {/* </Route> */}
         </Routes>
       </Router>
     </AuthProvider>
