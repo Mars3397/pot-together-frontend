@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { useParams } from "react-router-dom"
 import ChefCat from 'assets/chef-cat.svg';
 import HeaderWithBack from "components/CommonComponents/HeaderWithBack"
@@ -7,6 +8,7 @@ import "./Setting.css"
 
 const Setting = () => {
     const { roomId } = useParams()
+    const [modalVisible, setModalVisible] = useState(false);
     let url:string
     // check if roomId is valid
     if (roomId == "undefined") {
@@ -19,7 +21,10 @@ const Setting = () => {
         if (navigator.clipboard && navigator.clipboard.writeText) {
             navigator.clipboard.writeText(url)
               .then(() => {
-                alert('Text successfully copied to clipboard');
+                setModalVisible(true);
+                setTimeout(() => {
+                  setModalVisible(false);
+                }, 500);
               })
               .catch((error) => {
                 alert('Error copying text to clipboard: ' + error.message);
@@ -35,8 +40,6 @@ const Setting = () => {
                 title: "Join Our Room!",
                 url: url,
               })
-              .then(() => alert("Successful share"))
-              .catch((error) => alert("Error sharing"));
           } else {
             alert("Web Share API not supported in your browser");
           }
@@ -65,6 +68,15 @@ const Setting = () => {
             </div>
             <img id="chef-cat" src={ChefCat} alt="chef-cat"/>
             <button className="leave-btn">LEAVE</button>
+            {modalVisible && (
+              <div>
+                <div className="overlay"></div>
+                <div className="modal">
+                  {/* Modal 內容 */}
+                  <p>Copied!</p>
+                </div>
+              </div>
+            )}
         </div>
     )
 }
