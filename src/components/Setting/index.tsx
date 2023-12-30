@@ -6,15 +6,40 @@ import QRCode from "react-qr-code";
 import "./Setting.css"
 
 const Setting = () => {
-    // const { roomId } = useParams()
-    // set const value url
-    const url = "https://pot-together.vercel.app/"
-
+    const { roomId } = useParams()
+    let url:string
+    // check if roomId is valid
+    if (roomId == "undefined") {
+        console.log("roomId is undefined")
+        url = "https://pot-together.vercel.app/"
+    } else {
+        url = "https://pot-together.vercel.app/room/" + roomId
+    }
     const copyLink = () => {
-        navigator.clipboard.writeText(url)
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(url)
+              .then(() => {
+                alert('Text successfully copied to clipboard');
+              })
+              .catch((error) => {
+                alert('Error copying text to clipboard: ' + error.message);
+              });
+          } else {
+            console.error('Clipboard API is not supported in this browser.');
+          }        
     }
     const shareLink = () => {
-        // todo
+        if (navigator.share) {
+            navigator
+              .share({
+                title: "Join Our Room!",
+                url: url,
+              })
+              .then(() => alert("Successful share"))
+              .catch((error) => alert("Error sharing"));
+          } else {
+            alert("Web Share API not supported in your browser");
+          }
     }
 
     return (
@@ -24,7 +49,7 @@ const Setting = () => {
             <div className="invite-title">INVITE</div>
             <div className="QR-code">
                 <QRCode
-                    xlinkTitle="Join Room"
+                    xlinkTitle="Join Our Room!"
                     value={url}
                     bgColor="rgba(0, 0, 0, 0)"
                     fgColor="#000"
@@ -40,7 +65,6 @@ const Setting = () => {
             </div>
             <img id="chef-cat" src={ChefCat} alt="chef-cat"/>
             <button className="leave-btn">LEAVE</button>
-
         </div>
     )
 }

@@ -11,11 +11,11 @@
         color: #000;
         text-align: center;
         font-size: 2rem;
-        margin: 1.5rem 0;
+        margin: 1rem 0;
     }
 
     .link-container {
-        margin: 1.5rem 0;
+        margin: 1rem 0;
     }
 
     .link {
@@ -26,7 +26,7 @@
         display: flex;
         justify-content: space-between;
         max-width: 300px;
-        margin: 1.5rem 0;
+        margin: 1rem 0;
     }
 
     .btn {
@@ -42,8 +42,18 @@
         font-size: 1.5rem;
     }
 
+    #chef-cat {
+        width: 12rem;
+        height: 12rem;
+        transform: rotate(14.925deg);
+        position: relative;
+        bottom: 5vh;
+        left: 7rem;
+        object-fit: cover;
+    }
+
     .leave-btn {
-        position: absolute;
+        position: relative;
         bottom: 5vh;
         padding: 0.75rem 0;
         width: 10rem;
@@ -56,13 +66,4 @@
         font-size: 1.5rem;
     }
 
-    #chef-cat {
-        width: 14rem;
-        height: 14rem;
-        transform: rotate(14.925deg);
-        position: absolute;
-        bottom: 5rem;
-        left: 12rem;
-        object-fit: cover;
-    }
 }

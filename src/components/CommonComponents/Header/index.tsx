@@ -15,12 +15,12 @@ interface HeaderProps {
 
 const Header = (props: HeaderProps) => {
     const { title, roomData } = props
-
     const [openMenu, setOpenMenu] = useState(false)
+    const navigate = useNavigate();
 
     const handleSettingClick = () => {
-        const navigate = useNavigate();
-        navigate(`/setting`);
+        const roomId = roomData[0].roomID;
+        navigate(`/room/setting/${roomId}`);
     }
 
     return (
