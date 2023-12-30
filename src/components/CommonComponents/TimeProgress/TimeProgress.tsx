@@ -1,6 +1,6 @@
 import LinearProgress from '@mui/material/LinearProgress';
 import Box from '@mui/material/Box';
-import { ReactComponent as Mushrooms } from 'assets/Mushrooms.svg'
+import Mushrooms from 'assets/Mushrooms.svg';
 import Unlock from 'assets/Unlock.svg'
 import './TimeProgress.css'
 
@@ -38,11 +38,13 @@ function TimeProgress(props: TimeProgressProps) {
             <div className='progress-ingredient'>
                 <div className='progress-ingredient-unlock'>
                     <object type="image/svg+xml" data={Unlock} aria-label="Unlock" style={{ height: '.75rem' }}>
-                        <img src={Unlock} alt="Unlock" style={{ height: '.75rem' }} />
+                        <img src={Unlock} alt="Unlock" />
                     </object>
                     <span>&nbsp;30:00</span>
                 </div>
-                <Mushrooms style={{ width:30 }} />
+                <object type="image/svg+xml" data={Mushrooms} aria-label="Ingredient" style={{ width:35, filter: 'grayscale(100%)' }}>
+                        <img src={Mushrooms} alt="Ingredient" />
+                </object>
             </div>
         </div>
     );

@@ -16,9 +16,10 @@ const Choose = () => {
                     duration={92}
                     target={200}
                 />
-                <IngredientOptions groupId={0}/>
-                <IngredientOptions groupId={1}/>
-                <IngredientOptions groupId={2}/>
+                <IngredientOptions groupId={0} initTime={1}/>
+                <IngredientOptions groupId={0} initTime={30}/>
+                <IngredientOptions groupId={1} initTime={60}/>
+                <IngredientOptions groupId={2} initTime={90}/>
 
             </div>
         </div>

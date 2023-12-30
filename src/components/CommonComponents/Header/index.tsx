@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Menu from './Menu'
+import { SimpleRoomInfo } from 'api'
 import IconButton from '@mui/material/IconButton'
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded'
 import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded'
@@ -8,12 +9,12 @@ import './Header.css'
 
 interface HeaderProps {
     title: string
-    roomId?: number
+
+    roomData: SimpleRoomInfo[]
 }
 
 const Header = (props: HeaderProps) => {
-    const { title, roomId } = props
-    const navigate = useNavigate()
+    const { title, roomData } = props
 
     const [openMenu, setOpenMenu] = useState(false)
 
@@ -37,6 +38,7 @@ const Header = (props: HeaderProps) => {
                 />
             </IconButton>
             <Menu
+                roomData={roomData}
                 openMenu={openMenu}
                 setOpenMenu={setOpenMenu}
             />

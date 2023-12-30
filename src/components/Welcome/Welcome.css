@@ -5,6 +5,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-x: hidden;
 
     .content {
         width: 24.5rem;
@@ -39,12 +40,13 @@
             left: 4.3rem;
         }
 
-        #orange-man {
-            width: 10rem;
-            height: 12rem;
+        #chef-cat-with-spoon {
+            width: 15rem;
+            height: 15rem;
+            transform: rotate(1.327deg);
             position: absolute;
             top: 3.5rem;
-            left: 3rem;
+            left: 1rem;
             object-fit: cover;
             z-index: 1;
         }

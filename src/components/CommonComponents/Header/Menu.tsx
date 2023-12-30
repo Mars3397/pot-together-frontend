@@ -1,36 +1,17 @@
-import Drawer from "@mui/material/Drawer"
 import MenuItem from "./MenuItem"
+import { SimpleRoomInfo } from "api"
+import Drawer from "@mui/material/Drawer"
 import AddRoundedIcon from '@mui/icons-material/AddRounded'
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded'
 
 interface MenuProps {
+    roomData: SimpleRoomInfo[]
     openMenu: boolean
     setOpenMenu: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 const Menu = (props: MenuProps) => {
-    const { openMenu, setOpenMenu } = props
-
-    const menuItems = [
-        {
-            id: '1',
-            name: 'My Pot',
-            online: 5,
-            total: 5
-        },
-        {
-            id: '2',
-            name: 'TOFEL',
-            online: 1,
-            total: 1
-        },
-        {
-            id: '3',
-            name: 'Settings',
-            online: 3,
-            total: 3
-        }
-    ]
+    const { openMenu, setOpenMenu, roomData } = props
 
     return (
         <Drawer
@@ -47,16 +28,16 @@ const Menu = (props: MenuProps) => {
                     setOpenMenu={setOpenMenu}
                 />
                 {
-                    menuItems.map((item, index) => (
+                    roomData.map((item, index) => (
                         <MenuItem
                             key={index}
                             name={item.name}
                             classN='item'
-                            link={'/room/' + item.id}
+                            link={'/room/' + item.roomID}
                             setOpenMenu={setOpenMenu}
                             info={
                                 <span className='itemSpan'>
-                                    {item.online}/{item.total}
+                                    {item.memberCount}/{item.memberLimit}
                                 </span>
                             }
                         />

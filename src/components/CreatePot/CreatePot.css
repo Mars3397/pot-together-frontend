@@ -22,12 +22,18 @@
         }
 
         .name-input {
+            width: 50%;
             flex: 1;
             margin: .6rem 0;
             margin-left: 1rem;
             border: none;
             border-radius: 20px;
             font-size: 1.25rem;
+            text-align: center;
+            color: #BABEF4;
+            font-family: Jua;
+            font-size: 1.25rem;
+            font-weight: 400;
 
             &::placeholder {
                 color: #BABEF4;
@@ -60,6 +66,11 @@
             border: none;
             border-radius: 20px;
             font-size: 1.25rem;
+            text-align: center;
+            color: #BABEF4;
+            font-family: Jua;
+            font-size: 1.25rem;
+            font-weight: 400;
 
             &::placeholder {
                 color: #BABEF4;

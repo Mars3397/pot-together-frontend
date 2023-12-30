@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useCreateRoom } from "hooks/useRoom"
 import HeaderWithBack from "components/CommonComponents/HeaderWithBack"
 import ToggleButton from '@mui/material/ToggleButton'
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup'
@@ -6,19 +7,32 @@ import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded
 import "./CreatePot.css"
 
 const CreatePot = () => {
-    const [privacy, setPrivacy] = useState<string | null>('private')
-    const [category, setCategory] = useState<string | null>(null)
+    const createRoomMutation = useCreateRoom()
+    const [name, setName] = useState<string | null>(null)
+    const [memberLimit, setMemberLimit] = useState<number | null>(null)
+    const [privacy, setPrivacy] = useState<'public' | 'private' | null>('private')
+    const [category, setCategory] = useState<string[]>(() => [])
 
-    const handlePrivacy = (_event: React.MouseEvent<HTMLElement>, newPrivacy: string) => {
+    const handlePrivacy = (_event: React.MouseEvent<HTMLElement>, newPrivacy: 'public' | 'private') => {
         setPrivacy(newPrivacy)
     }
 
-    const handleCategory = (_event: React.MouseEvent<HTMLElement>, newCategory: string) => {
+    const handleCategory = (_event: React.MouseEvent<HTMLElement>, newCategory: string[]) => {
         setCategory(newCategory)
     }
 
     const handleCreate = () => {
-        console.log("Create Pot")
+        if (!name || !memberLimit || !privacy || !category) {
+            alert("Please fill in all the fields!")
+            return
+        }
+
+        createRoomMutation.mutate({
+            name: name,
+            memberLimit: memberLimit,
+            privacy: privacy,
+            category: category.join("|")
+        })
     }
 
     const toggleBtnStyle = {
@@ -43,6 +57,7 @@ const CreatePot = () => {
                     type="text"
                     className="name-input"
                     placeholder="Type Your Pot Name"
+                    onChange={(e) => setName(e.target.value)}
                 />
             </div>
             <div className="member-container">
@@ -52,6 +67,7 @@ const CreatePot = () => {
                     type="number"
                     className="member-input"
                     placeholder="Members Maximum"
+                    onChange={(e) => setMemberLimit(parseInt(e.target.value))}
                 />
             </div>
             <div className="btns-field-container">
@@ -85,7 +101,6 @@ const CreatePot = () => {
                 <span className="title">Category: </span>
                 <ToggleButtonGroup
                     value={category}
-                    exclusive
                     onChange={handleCategory}
                     aria-label="category"
                     className="btns-container"

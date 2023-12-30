@@ -1,0 +1,156 @@
+#cooking {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: #F9F9EE;
+    /* min-height: 100vh; */
+    padding-block: 1rem;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        /* margin-block: 1rem; */
+        font-size: 1.1rem;
+        text-align: center;
+    }
+
+    .content-big {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        /* margin-block: .5rem; */
+        font-size: 3.5rem;
+        letter-spacing: .2rem;
+        text-align: center;
+        color: #36423C;
+    }
+
+    .content-give-up {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        font-size: 1.5rem;
+        text-align: center;
+        color: #D0694B;
+    }
+
+    .cooking-img {
+        position: relative;
+        display: flex;
+        width: 300px;
+        height: 40vh;
+        margin-inline: auto;
+        align-items: center;
+
+        .cooking-ingredient {
+            position: absolute;
+            left: 10%;
+            bottom: 60%;
+            width: 4.5rem;
+        }
+        .cooking-pot {
+            position: absolute;
+            left: 25%;
+            width: 50vw;
+        }
+
+        .cooking-cat {
+            position: absolute;
+            left: 5%;
+            width: 85vw;
+        }
+
+        .cooking-timer {
+            position: absolute;
+            font-size: 5rem;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .cooking-big-ingredient {
+            position: absolute;
+            width: 40vw;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -60%);
+        }
+
+        .cooking-star1 {
+            position: absolute;
+            width: 2.5rem;
+            top: 70%;
+            left: 15%;
+        }
+
+        .cooking-star2 {
+            position: absolute;
+            width: 2rem;
+            top: 60%;
+            left: 10%;
+        }
+
+        .cooking-star3 {
+            position: absolute;
+            width: 3rem;
+            top: 5%;
+            right: 10%;
+        }
+
+        .cooking-star4 {
+            position: absolute;
+            width: 2rem;
+            left: 5%;
+            bottom: 45%;
+        }
+    }
+
+    .done-btn {
+        background-color: #D2D000;
+        border-radius: .8rem;
+        padding-inline: 3rem;
+        padding-block: .5rem;
+        margin-block: 1rem;
+        font-size: 1.1rem;
+        align-items: center;
+        text-decoration: none;
+        color: #36423C;
+    }
+
+    .btn-group {
+        display: grid;
+        width: 100%;
+        grid-template-columns: .8fr 1.4fr .8fr;
+        align-items: center;
+        
+        .back-btn {
+            background-color: #D2D000;
+            border-radius: .8rem;
+            padding-inline: 1.5rem;
+            padding-block: .5rem;
+            margin-block: 1rem;
+            font-size: 1.1rem;
+            align-items: center;
+            text-decoration: none;
+            color: #36423C;
+            grid-column: 2;
+            justify-self: center;
+        }
+
+        .share-btn {
+            grid-column: 3;
+            /* margin-left: 1rem; */
+            justify-self: start;
+        }
+    }
+}
