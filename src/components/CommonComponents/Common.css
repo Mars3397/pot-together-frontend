@@ -20,6 +20,7 @@
 
     .list-content {
         width: 100%;
+        overflow-x: scroll;
         min-height: 3rem;
         background-color: white;
         border: #BABEF4 .2rem solid;
