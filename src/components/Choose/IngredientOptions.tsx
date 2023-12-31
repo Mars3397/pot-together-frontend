@@ -1,4 +1,5 @@
 import { useParams, useNavigate } from "react-router-dom"
+import { useAddRecord } from "hooks/useRecord"
 import Mushrooms from 'assets/Mushrooms.svg'
 import Tomato from 'assets/Tomato.svg'
 
@@ -19,10 +20,23 @@ const IngredientTimer = ["10 sec", "20 sec", "30 min"]
 const IngredientOptions = (props: IngredientOptionsProps) => {
     const { roomId } = useParams()
     const { groupId, initTime, foodId } = props
+    const {
+        data: addRecordData,
+        mutate: addRecord,
+    } = useAddRecord()
     const navigate = useNavigate()
     const sendParams = (initTime: number, id: number) => {
-        initTime = initTime * 60;
-        navigate(`/room/${roomId}/cooking/in-progress`, { state: { initTime: initTime, foodID: id } });
+        addRecord({
+            roomID: Number(roomId),
+            potID: "none",
+            ingredientID: 1,
+        }, {
+            onSuccess: () => {
+                console.log(addRecordData.data.recordID) // you need to pass recordID to finish page
+                initTime = initTime * 60;
+                navigate(`/room/${roomId}/cooking/in-progress`, { state: { initTime: initTime, foodID: id }});
+            },
+        })
     }
 
     const containerStyle = {

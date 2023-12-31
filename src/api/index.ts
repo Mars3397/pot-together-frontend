@@ -71,3 +71,32 @@ export interface SimpleRoomInfo {
     memberCount: number;
     memberLimit: number;
 }
+
+/**
+ * structure for get ingredienta data
+ * 
+ * @field recordID: record id
+ * @field image: ingredient image link
+ * @field caption: ingredient caption
+ * @field interval: cooking time interval
+ * @field finishTime: cooking finish time
+ * @field ingredientID: ingredient id
+ * @field ingredientImage: ingredient image link
+ * @field ingredientName: ingredient name
+ * @field interrupt: how many times the cooking is interrupted
+ * @field status: cooking status
+ */
+
+export const statusMapping = ['正在煮', '煮好了', '失敗']
+export interface Ingredient {
+    recordID: number
+    image: string
+    caption: string
+    interval: number
+    finishTime: number
+    ingredientID: number
+    ingredientImage: string
+    ingredientName: string
+    interrupt: number
+    status: number
+}

@@ -1,12 +1,13 @@
-import { ReactComponent as Mushrooms } from 'assets/Mushrooms.svg'
 import './Common.css'
+import { Ingredient } from 'api'
 
 interface IngredientsListProps {
     title: string
+    ingredients: Ingredient[]
 }
 
 const IngredientsList = (props: IngredientsListProps) => {
-    const { title } = props
+    const { title, ingredients } = props
 
     return (
         <div className='ingredients-list'>
@@ -14,15 +15,11 @@ const IngredientsList = (props: IngredientsListProps) => {
                 <span className='list-title-text'>{title}</span>
             </div>
             <div className='list-content'>
-                <div className='list-item'>
-                    <Mushrooms />
-                </div>
-                <div className='list-item'>
-                    <Mushrooms />
-                </div>
-                <div className='list-item'>
-                    <Mushrooms />
-                </div>
+                {ingredients.map((ingredient, index) => (
+                    <div className='list-item' key={index}>
+                        <img src={ingredient.ingredientImage} alt={ingredient.ingredientName} />
+                    </div>
+                ))}
             </div>
         </div>
     )

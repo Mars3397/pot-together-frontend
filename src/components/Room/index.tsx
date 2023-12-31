@@ -7,8 +7,9 @@ import GroupAnalysis from './GroupAnalysis'
 import BottomMenu from './BottomMenu'
 import { useAllUserRooms } from 'hooks/useRoom'
 import { CircularProgress } from '@mui/material'
+import { useAllRoomRecords } from 'hooks/useRecord'
+import { Ingredient } from 'api'
 import './Room.css'
-// import { Link } from 'react-router-dom';
 
 const today = new Date();
 const month = today.getMonth() + 1;
@@ -25,9 +26,27 @@ const Room = () => {
         targetRoom = roomData.data.find(room => room.roomID === Number(roomId));
     } 
 
+    const {
+        data: recordData,
+    } = useAllRoomRecords(Number(roomId))
+
+    const filterNowCookingRecord = (records: Ingredient[]) => {
+        if (records === undefined || records === null) return []
+        return records.filter(record =>
+            record.status === 0
+        )
+    }
+
+    const filterDoneCookingRecord = (records: Ingredient[]) => {
+        if (records === undefined || records === null) return []
+        return records.filter(record =>
+            record.status === 1
+        )
+    }
+    
     return (
         <div id="room">
-            {roomData === undefined ? (
+            {roomData === undefined || recordData === undefined ? (
                 <CircularProgress sx={{
                     position: 'absolute',
                     top: '50%',
@@ -45,11 +64,14 @@ const Room = () => {
                             duration={92}
                             target={200}
                         />
-                        <IngredientsList title="Now Cooking..." />
-                        <IngredientsList title="Done!" />
-                        {/* <div id='dish-up-btn' onClick={}>
-                            DISH UP
-                        </div> */}
+                        <IngredientsList
+                            title="Now Cooking..."
+                            ingredients={filterNowCookingRecord(recordData.data)}
+                        />
+                        <IngredientsList
+                            title="Done!"
+                            ingredients={filterDoneCookingRecord(recordData.data)}
+                        />
                     </div>
                     <BottomMenu />
                 </>
