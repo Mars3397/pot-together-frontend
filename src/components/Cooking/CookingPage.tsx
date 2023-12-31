@@ -211,7 +211,7 @@ const CookingPage = () => {
                 make a record
             </span>}
             {isOvertime && !isFinish && <div className="done-btn"
-                onClick={() => { setIsFinish(true); setIsCounting(false); setContentIndex(3); handlePause()}}>
+                onClick={() => { setIsFinish(true); setIsCounting(false); setContentIndex(3); setMusicPlayer(false)}}>
                     DONE
             </div>}
             {isFinish && <div onClick={() => {sendParams()}} className="done-btn">CAMERA</div>}
