@@ -1,0 +1,50 @@
+.written-record {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+
+  .written-record-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0.5rem;
+  }
+
+  .written-record-date {
+    font-size: 1rem;
+    color: #babef4;
+  }
+
+  .written-record-interval {
+    font-size: 2.2rem;
+    color: #7f84c5;
+  }
+
+  .written-record-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0rem;
+  }
+
+  .written-record-image {
+    border: 3px solid #babef4;
+    border-radius: 1rem;
+    width: 60%;
+    height: auto;
+  }
+
+  .written-record-caption {
+    margin-top: 1rem;
+    padding: 0 3rem;
+  }
+
+  .written-record-ingredient-image {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+}
