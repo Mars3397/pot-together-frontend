@@ -1,6 +1,6 @@
 #room {
     background-color: #F9F9EE;
-    min-height: 100vh;
+    min-height: 90vh;
     display: flex;
     flex-direction: column;
     padding-bottom: 3rem;
@@ -13,7 +13,7 @@
 
     #members {
         width: 320px;
-        margin: 1.5rem 2rem;
+        margin: .5rem 2rem;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -58,7 +58,7 @@
 
     #group-analysis {
         width: 320px;
-        margin: 1.5rem 2rem;
+        margin: 1rem 2rem;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;

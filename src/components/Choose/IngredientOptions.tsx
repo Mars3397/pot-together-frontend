@@ -21,7 +21,6 @@ const IngredientOptions = (props: IngredientOptionsProps) => {
     const { roomId } = useParams()
     const { groupId, initTime, foodId } = props
     const {
-        data: addRecordData,
         mutate: addRecord,
     } = useAddRecord()
     const navigate = useNavigate()
@@ -31,10 +30,9 @@ const IngredientOptions = (props: IngredientOptionsProps) => {
             potID: "none",
             ingredientID: 1,
         }, {
-            onSuccess: () => {
-                console.log(addRecordData.data.recordID) // you need to pass recordID to finish page
+            onSuccess: (data) => {
                 initTime = initTime * 60;
-                navigate(`/room/${roomId}/cooking/in-progress`, { state: { initTime: initTime, foodID: id }});
+                navigate(`/room/${roomId}/cooking/in-progress`, { state: { initTime: initTime, foodID: id, recordID: data.data.recordID }});
             },
         })
     }

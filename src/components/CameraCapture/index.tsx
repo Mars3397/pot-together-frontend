@@ -14,6 +14,7 @@ export const CameraCapture = () => {
   const location = useLocation();
   const totalTime = location.state.totalTime;
   const foodID = location.state.foodID;
+  const recordID = location.state.recordID;
   const { roomId } = useParams();
 
   // You may notice that the height and the width are reversed,
@@ -64,7 +65,7 @@ export const CameraCapture = () => {
             <DoneIcon
               className="icon-button"
               onClick={() => {
-                navigate(`/room/${roomId}/record`, { state: { image: imgSrc, time: totalTime, foodID: foodID } });
+                navigate(`/room/${roomId}/record`, { state: { image: imgSrc, time: totalTime, foodID: foodID, recordID: recordID } });
               }}
             />
           </div>

@@ -22,9 +22,9 @@ const Overview = () => {
 
     const filterTodayCookedRecord = (records: Ingredient[]) => {
         if (records === undefined || records === null) return []
-        const today = new Date()
+        const today = new Date().toLocaleDateString()
         return records.filter(record =>
-            new Date(record.finishTime * 1000) === today &&
+            new Date(record.finishTime * 1000).toLocaleDateString() === today &&
             record.status === 1
         )
     }

@@ -34,14 +34,15 @@ export const AddRecord = async (data: AddRecordData) => {
 
 interface FinishRecordData {
     recordID: number;
-    image: string;
+    formData: FormData;
 }
 
 export const FinishRecord = async (data: FinishRecordData) => {
     const response = await axios({
         method: "PATCH",
         url: `${API.records}/${data.recordID}`,
-        data,
+        headers: { "Content-Type": "multipart/form-data" },
+        data: data.formData,
     });
     return response.data;
 }

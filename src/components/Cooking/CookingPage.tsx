@@ -18,6 +18,7 @@ const CookingPage = () => {
     const location = useLocation();
     const initTime: number = (location.state.initTime || 0);
     const foodID: number = (location.state.foodID || 0);
+    const recordID: number = (location.state.recordID || 0);
     const { roomId } = useParams()
     const [musicPlayer, setMusicPlayer] = useState(false);
     const [targetTime, setTargetTime] = useState(initTime);
@@ -64,7 +65,7 @@ const CookingPage = () => {
         `Good Job!\nYour ${ingredient} is cooked!`
     ];
     const sendParams = () => {
-        navigate(`/room/${roomId}/CameraCapture`, { state: { totalTime: totalTime, foodID: foodID }})
+        navigate(`/room/${roomId}/CameraCapture`, { state: { totalTime: totalTime, foodID: foodID, recordID: recordID }})
     }
     useEffect(() => {
         const requestPermission = (DeviceOrientationEvent as any).requestPermission;
