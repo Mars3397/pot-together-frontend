@@ -42,7 +42,7 @@ export const WrittenRecord = (props: WrittenRecordProps) => {
   };
 
   return (
-    <Dialog open={open} handleClose={handleOnClose}>
+    <Dialog id="record-dialog" open={open} handleClose={handleOnClose}>
       <div className="written-record">
         <div className="written-record-title">
           <div className="written-record-date">
