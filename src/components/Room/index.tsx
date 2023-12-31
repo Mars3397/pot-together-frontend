@@ -6,20 +6,25 @@ import Members from './Members'
 import GroupAnalysis from './GroupAnalysis'
 import BottomMenu from './BottomMenu'
 import { useAllUserRooms } from 'hooks/useRoom'
-import './Room.css'
 import { CircularProgress } from '@mui/material'
-import { Link } from 'react-router-dom';
+import './Room.css'
+// import { Link } from 'react-router-dom';
+
+const today = new Date();
+const month = today.getMonth() + 1;
+const day = today.getDate();
 
 const Room = () => {
     const { roomId } = useParams()
     const {
         data: roomData,
     } = useAllUserRooms()
-    
-    const dishUp = () => {
-        console.log("dish up");
-        // TODO: Del room
-    }
+
+    var targetRoom;
+    if (roomData && roomData.data) {
+        targetRoom = roomData.data.find(room => room.roomID === Number(roomId));
+    } 
+
     return (
         <div id="room">
             {roomData === undefined ? (
@@ -31,10 +36,10 @@ const Room = () => {
                 }} />
             ) : (
                 <>
-                    <Header title={String(roomId)} roomData={roomData.data} />
+                    <Header title={String(targetRoom?.name)} roomData={roomData.data} />
                     <div className='content'>
-                        <Members />
-                        <GroupAnalysis duration={100} targetYear={2023} targetMonth={1} targetDay={2} />
+                        <Members roomID={targetRoom?.roomID ?? 0} />
+                        <GroupAnalysis duration={100} targetYear={2023} targetMonth={month} targetDay={day} />
                         <TimeProgress
                             title="Total Cooking Duration "
                             duration={92}
@@ -45,7 +50,6 @@ const Room = () => {
                         {/* <div id='dish-up-btn' onClick={}>
                             DISH UP
                         </div> */}
-                        <Link id='dish-up-btn' to="/" onClick={dishUp}>DISH UP</Link>
                     </div>
                     <BottomMenu />
                 </>

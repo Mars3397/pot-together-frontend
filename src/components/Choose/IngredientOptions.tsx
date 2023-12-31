@@ -1,24 +1,28 @@
 import { useParams, useNavigate } from "react-router-dom"
 import Mushrooms from 'assets/Mushrooms.svg'
+import Tomato from 'assets/Tomato.svg'
 
 import './Choose.css'
 
 interface IngredientOptionsProps {
     groupId: number,
-    initTime: number
+    initTime: number,
+    foodId: Array<number>
 }
 
 const IngredientColor = ["#BABEF4", "#FFCDBE", "#D2D000"]
 const TextColor = ["#7F84C5", "#D0694B", "#7D7D2D"]
-const IngredientTimer = ["30 min", "1 hr", "1 hr 30 min"]
+const IngredientList = [Mushrooms, Tomato]
+// const IngredientTimer = ["30 min", "1 hr", "1 hr 30 min"]
+const IngredientTimer = ["10 sec", "20 sec", "30 min"]
 
 const IngredientOptions = (props: IngredientOptionsProps) => {
     const { roomId } = useParams()
-    const { groupId, initTime } = props
+    const { groupId, initTime, foodId } = props
     const navigate = useNavigate()
-    const sendParams = (initTime: number) => {
+    const sendParams = (initTime: number, id: number) => {
         initTime = initTime * 60;
-        navigate(`/room/${roomId}/cooking/in-progress`, { state: {initTime}});
+        navigate(`/room/${roomId}/cooking/in-progress`, { state: { initTime: initTime, foodID: id } });
     }
 
     const containerStyle = {
@@ -35,21 +39,11 @@ const IngredientOptions = (props: IngredientOptionsProps) => {
                     {IngredientTimer[groupId]}
             </span>
             <div className="ingredients-content">
-                <div className="ingredients-item" onClick={() => {sendParams(initTime)}}>
-                    <img src={Mushrooms} alt="Mushrooms" className="ingredients-item"/>
-                </div>
-                <div className="ingredients-item" onClick={() => {sendParams(initTime)}}>
-                    <img src={Mushrooms} alt="Mushrooms" className="ingredients-item"/>
-                </div>
-                <div className="ingredients-item" onClick={() => {sendParams(initTime)}}>
-                    <img src={Mushrooms} alt="Mushrooms" className="ingredients-item"/>
-                </div>
-                <div className="ingredients-item" onClick={() => {sendParams(initTime)}}>
-                    <img src={Mushrooms} alt="Mushrooms" className="ingredients-item"/>
-                </div>
-                <div className="ingredients-item" onClick={() => {sendParams(initTime)}}>
-                    <img src={Mushrooms} alt="Mushrooms" className="ingredients-item"/>
-                </div>
+                {foodId.map((id) => (
+                    <div key={id} className="ingredients-item" onClick={() => { sendParams(initTime, id) }}>
+                        <img src={IngredientList[id]} alt={`Ingredient ${id}`} className="ingredients-item" />
+                    </div>
+                ))}
             </div>
         </div>
     )

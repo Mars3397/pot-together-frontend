@@ -8,7 +8,7 @@ interface GroupAnalysisProps {
     targetDay: number
 }
 
-const colorList = ["#246270", "#63623A", "#8A4F3E", "#36423C"]
+const colorList = ["#36423C", "#D2D000"]
 
 function calculatePreviousSevenDays(targetYear: number, targetMonth: number, targetDay: number) {
     // Create a Date object for the target date
@@ -41,7 +41,7 @@ function GroupAnalysis(props: GroupAnalysisProps) {
                     leftAxis={null}
                     bottomAxis={null}
                     xAxis={[{ scaleType: 'band', data: previousDays }]}
-                    series={[{ data: [4, 3, 5, 7, 12, 14, 1], color: colorList[0]}, { data: [25, 13, 34, 66, 44, 34, 12], color: colorList[1] }]}
+                    series={[{ data: [4, 8, 5, 7, 9, 5, 3], color: colorList[0]}, { data: [25, 13, 34, 66, 44, 34, 12], color: colorList[1] }]}
                     width={320}
                     height={100}
                     margin={{

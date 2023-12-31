@@ -4,6 +4,8 @@ import { Link, useParams, useLocation  } from "react-router-dom"
 import IconButton from '@mui/material/IconButton'
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 import Mushrooms from 'assets/Mushrooms.svg';
+import Tomato from 'assets/Tomato.svg'
+
 import Star from 'assets/Star.svg';
 import Logo from 'assets/Logo.svg'
 import SharePage from 'assets/SharePage.svg'
@@ -13,9 +15,12 @@ import './Cooking.css';
 const CookingDone: React.FC = () => {
     const location = useLocation();
     const totalTime = location.state?.totalTime;
+    const foodID = location.state?.foodID;
     const { roomId } = useParams();
     const [modifiedSvg, setModifiedSvg] = useState<string | null>(null);
-
+    const IngredientList = [["Mushrooms", Mushrooms], ["Tomato", Tomato]]
+    const ingredient = IngredientList[foodID][0];
+    const ingredientSvg = IngredientList[foodID][1];
     useEffect(() => {
         const svgObject = document.getElementById('SharePage') as HTMLObjectElement;
         
@@ -102,8 +107,8 @@ const CookingDone: React.FC = () => {
                 {formatTime(totalTime)}
             </span>
             <div className="cooking-img">
-                <object type="image/svg+xml" data={Mushrooms} aria-label="Mushrooms" className="cooking-ingredient">
-                    <img src={Mushrooms} alt="" />
+                <object type="image/svg+xml" data={ingredientSvg} aria-label={ingredient} className="cooking-ingredient">
+                    <img src={ingredientSvg} alt="" />
                 </object>
                 <object type="image/svg+xml" data={Logo} aria-label="LogoCat" className="cooking-cat">
                     <img src={Logo} alt="" />

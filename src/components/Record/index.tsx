@@ -8,12 +8,13 @@ export const Record = () => {
   const { roomId } = useParams()
   const image = location.state?.image;
   const totalTime = location.state?.time;
+  const foodID = location.state?.foodID;
   const [postContent, setPostContent] = useState("");
 
   const handleSaveClicked = () => {
     console.log("image (encoded in base64): ", image);
     console.log("post content: ", postContent);
-    navigate(`/room/${roomId}/cooking/done`, { state: {totalTime}})
+    navigate(`/room/${roomId}/cooking/done`, { state: { totalTime: totalTime, foodID: foodID }})
 
   };
 

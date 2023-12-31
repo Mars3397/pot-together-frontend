@@ -2,12 +2,23 @@ import Avatar1 from 'assets/Avatar1.svg';
 import Avatar2 from 'assets/Avatar2.svg';
 import Avatar3 from 'assets/Avatar3.svg';
 import Avatar4 from 'assets/Avatar4.svg';
+import { useGetOverview } from 'hooks/useUser'
+
 import './Room.css'
 
 const colorList = ["#246270", "#63623A", "#8A4F3E", "#36423C"]
 const avatarList = [Avatar1, Avatar2, Avatar3, Avatar4]
 
-const Members = () => {
+interface MembersProps {
+    roomID: number,
+}
+
+const Members = (props: MembersProps) => {
+    const {
+        data: overviewData,
+    } = useGetOverview()
+    // const { roomID } = props
+
     return (
         <div id="members">
             <div className='members-title'>

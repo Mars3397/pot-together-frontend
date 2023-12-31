@@ -2,36 +2,39 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate, useLocation } from "react-router-dom"
 import { formatTime } from '../../utils';
 import Pot from 'assets/RadPot.svg';
-import Mushrooms from 'assets/Mushrooms.svg';
+import Mushrooms from 'assets/Mushrooms.svg'
+import Tomato from 'assets/Tomato.svg'
 import Star from 'assets/Star.svg';
 import './Cooking.css';
 
 // const initTime = 5; // HINT: initTime (sec)
-const ingredient = 'Mushroom';
-const contentList = [
-    `You add a ${ingredient} to the pot!`,
-    'The timer has been paused.',
-    'The ingredients are too raw...',
-    `Good Job!\nYour ${ingredient} is cooked!`
-];
-var totalTime = 0
 
 const CookingPage = () => {
     const navigate = useNavigate()
     const location = useLocation();
     const initTime: number = (location.state.initTime || 0);
+    const foodID: number = (location.state.foodID || 0);
     const { roomId } = useParams()
     const [targetTime, setTargetTime] = useState(initTime);
     const [contentIndex, setContentIndex] = useState(0);
     const [isFinish, setIsFinish] = useState(false);
     const [isOvertime, setIsOvertime] = useState(false);
+    const [totalTime, setTotalTime] = useState(0);
     const [beta, setBeta] = useState(90)
     const [isCounting, setIsCounting] = useState(true);
     const [countdown, setCountdown] = useState(10);
 
+    const IngredientList = [["Mushrooms", Mushrooms], ["Tomato", Tomato]]
+    const ingredient = IngredientList[foodID][0];
+    const ingredientSvg = IngredientList[foodID][1];
+    const contentList = [
+        `You add a ${ingredient} to the pot!`,
+        'The timer has been paused.',
+        'The ingredients are too raw...',
+        `Good Job!\nYour ${ingredient} is cooked!`
+    ];
     const sendParams = () => {
-        // navigate(`/room/${roomId}/cooking/done`, { state: {totalTime}})
-        navigate(`/room/${roomId}/CameraCapture`, { state: {totalTime}})
+        navigate(`/room/${roomId}/CameraCapture`, { state: { totalTime: totalTime, foodID: foodID }})
     }
     useEffect(() => {
         const requestPermission = (DeviceOrientationEvent as any).requestPermission;
@@ -111,10 +114,11 @@ const CookingPage = () => {
     useEffect(() => {
         if (isFinish) {
             if (isOvertime) {
-                totalTime = initTime + Math.abs(targetTime)
+                setTotalTime(initTime + Math.abs(targetTime))
             } else {
-                totalTime = initTime - Math.abs(targetTime)
+                setTotalTime(initTime - Math.abs(targetTime))
             }
+            console.log("target time", isOvertime, formatTime(Math.abs(targetTime)))
         }
     }, [initTime, isFinish, isOvertime, targetTime]);
 
@@ -139,8 +143,8 @@ const CookingPage = () => {
             </span>
             {contentIndex !== 3 && <div className="cooking-img">
                 {contentIndex === 0 && 
-                <object type="image/svg+xml" data={Mushrooms} aria-label="Mushrooms" className="cooking-ingredient">
-                    <img src={Mushrooms} alt="" />
+                <object type="image/svg+xml" data={ingredientSvg} aria-label={ingredient} className="cooking-ingredient">
+                    <img src={ingredientSvg} alt="" />
                 </object>}
                 <img
                     className="cooking-pot"
@@ -155,8 +159,8 @@ const CookingPage = () => {
                 {!isCounting && contentIndex !== 0 && !isFinish && <span className="cooking-timer">{countdown}</span>}
             </div>}
             {contentIndex === 3 && <div className='cooking-img'>
-                <object type="image/svg+xml" data={Mushrooms} aria-label="Mushrooms"  className="cooking-big-ingredient">
-                    <img src={Mushrooms} alt="" />
+                <object type="image/svg+xml" data={ingredientSvg} aria-label={ingredient}  className="cooking-big-ingredient">
+                    <img src={ingredientSvg} alt="" />
                 </object>
                 <img className="cooking-star1" src={Star} alt="" />
                 <img className="cooking-star2" src={Star} alt="" />
