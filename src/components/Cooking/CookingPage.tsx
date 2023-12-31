@@ -1,12 +1,16 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate, useLocation } from "react-router-dom"
 import { formatTime } from '../../utils';
+import ReactAudioPlayer from 'react-audio-player';
+import IconButton from '@mui/material/IconButton'
 import Pot from 'assets/RadPot.svg';
 import Mushrooms from 'assets/Mushrooms.svg'
 import Tomato from 'assets/Tomato.svg'
 import Star from 'assets/Star.svg';
+import VolumeUpIcon from '@mui/icons-material/VolumeUp';
+import VolumeOffIcon from '@mui/icons-material/VolumeOff';
 import './Cooking.css';
-
+const sounds = require("../../assets/sounds/pot.mp3");
 // const initTime = 5; // HINT: initTime (sec)
 
 const CookingPage = () => {
@@ -15,6 +19,7 @@ const CookingPage = () => {
     const initTime: number = (location.state.initTime || 0);
     const foodID: number = (location.state.foodID || 0);
     const { roomId } = useParams()
+    const [musicPlayer, setMusicPlayer] = useState(false);
     const [targetTime, setTargetTime] = useState(initTime);
     const [contentIndex, setContentIndex] = useState(0);
     const [isFinish, setIsFinish] = useState(false);
@@ -23,6 +28,31 @@ const CookingPage = () => {
     const [beta, setBeta] = useState(90)
     const [isCounting, setIsCounting] = useState(true);
     const [countdown, setCountdown] = useState(10);
+
+    const audioPlayerRef = useRef(null);
+    const handlePause = () => {
+        const audioElement = (audioPlayerRef.current as any)?.audioEl.current;
+        if (audioElement && audioElement.play) {
+            audioElement.pause();
+        }
+    };
+
+    const handlePlay = () => {
+        const audioElement = (audioPlayerRef.current as any)?.audioEl.current;
+        if (audioElement && audioElement.paused) {
+            audioElement.play();
+        }
+    };
+    
+    useEffect(() => {
+        const audioElement = (audioPlayerRef.current as any)?.audioEl.current;
+        if (musicPlayer && audioElement) {
+            audioElement.play();
+
+        } else {
+            audioElement.pause();
+        }
+    },[musicPlayer])
 
     const IngredientList = [["Mushrooms", Mushrooms], ["Tomato", Tomato]]
     const ingredient = IngredientList[foodID][0];
@@ -44,11 +74,17 @@ const CookingPage = () => {
                 setBeta(Math.round(event.beta || 0));
 
                 if ((beta >= 165 && beta <= 180) || (beta <= -165 && beta >= -180)) {
+                    if (musicPlayer) {
+                        handlePlay()
+                    }
                     setIsCounting(true);
                     if (contentIndex === 0) {
                         setContentIndex(1)
                     }
                 } else {
+                    if (musicPlayer) {
+                        handlePause()
+                    }
                     setIsCounting(false);
                 }
             }
@@ -175,10 +211,39 @@ const CookingPage = () => {
                 make a record
             </span>}
             {isOvertime && !isFinish && <div className="done-btn"
-                onClick={() => { setIsFinish(true); setIsCounting(false); setContentIndex(3); }}>
+                onClick={() => { setIsFinish(true); setIsCounting(false); setContentIndex(3); handlePause()}}>
                     DONE
             </div>}
             {isFinish && <div onClick={() => {sendParams()}} className="done-btn">CAMERA</div>}
+            <ReactAudioPlayer
+                ref={audioPlayerRef}
+                src={sounds}
+                autoPlay
+                controls
+                loop
+                style={{ display: 'none' }}
+            />
+            {!isFinish && <IconButton aria-label="setting" onClick={()=>{setMusicPlayer((prev) => !prev)}}>
+            {musicPlayer ? (
+                <VolumeUpIcon
+                fontSize="large"
+                sx={{
+                    color: '#969696',
+                    stroke: '#969696',
+                    strokeWidth: 1,
+                }}
+                />
+            ) : (
+                <VolumeOffIcon
+                fontSize="large"
+                sx={{
+                    color: '#969696',
+                    stroke: '#969696',
+                    strokeWidth: 1,
+                }}
+                />
+            )}
+            </IconButton>}
         </div>
     );
 };
