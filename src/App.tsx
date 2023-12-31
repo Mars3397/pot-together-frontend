@@ -13,8 +13,9 @@ import SearchPot from "components/SearchPot";
 import Choose from "components/Choose";
 import CameraCapture from "components/CameraCapture";
 import Record from "components/Record";
-import Cooking from 'components/Cooking'
+import Cooking from "components/Cooking";
 import Setting from "components/Setting";
+import AnalysisPage from "components/AnalysisPage/AnalysisPage";
 
 const App = () => {
   return (
@@ -30,10 +31,14 @@ const App = () => {
             <Route path="/CreatePot" element={<CreatePot />} />
             <Route path="/SearchPot" element={<SearchPot />} />
             <Route path="/room/:roomId/Choose" element={<Choose />} />
-            <Route path='/room/:roomId/Cooking/:status' element={<Cooking />} />
-            <Route path="/room/:roomId/CameraCapture" element={<CameraCapture />} />
+            <Route path="/room/:roomId/Cooking/:status" element={<Cooking />} />
+            <Route
+              path="/room/:roomId/CameraCapture"
+              element={<CameraCapture />}
+            />
             <Route path="/room/:roomId/Record" element={<Record />} />
             <Route path="/room/setting/:roomId" element={<Setting />} />
+            <Route path="/analysis" element={<AnalysisPage />} />
           </Route>
         </Routes>
       </Router>
