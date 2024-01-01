@@ -80,7 +80,7 @@ export const Record = () => {
         // Now you can use the JPEG data URI as needed
         let formData = new FormData();
         formData.append("image", DataURIToBlob(jpegDataURI), "image.jpeg");
-        formData.append("interval", foodID === 0 ? '10' : '20');
+        formData.append("interval", totalTime);
         formData.append("interrupt", "0");
         formData.append("caption", postContent);
         formData.append("status", "1");

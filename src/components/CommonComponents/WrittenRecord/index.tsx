@@ -27,13 +27,15 @@ interface WrittenRecordProps {
   image: string;
   caption: string;
   ingredientImg: string;
+  username: string;
 }
 
 export const WrittenRecord = (props: WrittenRecordProps) => {
-  const { open, handleOnClose, date, interval, image, caption, ingredientImg } =
+  const { open, handleOnClose, date, interval, image, caption, ingredientImg, username } =
     props;
 
   const formatTime = (value: number) => {
+    if (value === 0) return "";
     const second = value % 60;
     const hour = Math.floor(value / 3600);
     const minute = Math.floor((value % 3600) / 60);
@@ -51,8 +53,9 @@ export const WrittenRecord = (props: WrittenRecordProps) => {
           <div className="written-record-interval">{formatTime(interval)}</div>
         </div>
         <div className="written-record-content">
-          <img className="written-record-image" src={image} alt="" />
-          <div className="written-record-caption">{caption}</div>
+          {image && <img className="written-record-image" src={image} alt="" />}
+          <div className="written-record-caption">{caption || "cooking..."}</div>
+          <div className="written-record-date">{username}</div>
         </div>
 
         <div className="written-record-ingredient-image">

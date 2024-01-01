@@ -99,4 +99,5 @@ export interface Ingredient {
     ingredientName: string
     interrupt: number
     status: number
+    username: string
 }

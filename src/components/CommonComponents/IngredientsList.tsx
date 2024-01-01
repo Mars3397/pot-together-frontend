@@ -45,6 +45,7 @@ const IngredientsList = (props: IngredientsListProps) => {
                 image={selectIngredient?.image || ''}
                 caption={selectIngredient?.caption || ''}
                 ingredientImg={selectIngredient?.ingredientImage || ''}
+                username={selectIngredient?.username || ''}
             />
         </div>
     )
