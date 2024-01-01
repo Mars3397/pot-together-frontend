@@ -3,7 +3,7 @@ import { BarChart } from '@mui/x-charts/BarChart'
 import './Overview.css'
 
 const Analysis = () => {
-    const todayDateString = new Date().toLocaleDateString()
+    const todayDateString = new Date().toLocaleDateString("en-US")
     const navigate = useNavigate()
     
     const handleOnClick = () => {
@@ -20,8 +20,6 @@ const Analysis = () => {
         new Date().toLocaleDateString(),
     ]
 
-    console.log(todayDateString.substring(5, todayDateString.length))
-
     return (
         <div id='analysis' onClick={handleOnClick}>
             <div className='analysis-title'>
@@ -30,7 +28,7 @@ const Analysis = () => {
             <div className='analysis-content'>
                 <div className='date'>
                     <span className='date-text'>
-                        {todayDateString.substring(5, todayDateString.length)}
+                        {todayDateString.substring(0, todayDateString.length - 5)}
                     </span>
                 </div>
                 <div className='time'>
