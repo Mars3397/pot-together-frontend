@@ -59,7 +59,7 @@ const Room = () => {
                 }} />
             ) : (
                 <>
-                    <Header title={String(targetRoom?.name)} roomData={roomData.data} />
+                    <Header title={String(targetRoom?.name)} roomData={roomData.data} roomID={Number(roomId)} />
                     <div className='content'>
                         <Members memberInfo={roomInfo.data.members} />
                         <GroupAnalysis duration={150} targetYear={2024} targetMonth={month} targetDay={day} />

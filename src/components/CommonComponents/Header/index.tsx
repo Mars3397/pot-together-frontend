@@ -12,11 +12,12 @@ import './Header.css'
 interface HeaderProps {
     title: string
     roomData: SimpleRoomInfo[]
+    roomID?: number
     isOverview?: boolean
 }
 
 const Header = (props: HeaderProps) => {
-    const { title, roomData, isOverview } = props
+    const { title, roomData, roomID, isOverview } = props
     const navigate = useNavigate();
 
     const [openMenu, setOpenMenu] = useState(false)
@@ -31,8 +32,7 @@ const Header = (props: HeaderProps) => {
     }
 
     const handleSettingClick = () => {
-        const roomId = roomData[0].roomID;
-        navigate(`/room/setting/${roomId}`);
+        navigate(`/room/setting/${roomID || 0}`);
     }
 
     return (

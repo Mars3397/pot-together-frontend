@@ -1,4 +1,3 @@
-import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
 import "./AnalysisPage.css";
 
 interface IngredientListProps {
@@ -42,7 +41,16 @@ export const IngredientList = (props: IngredientListProps) => {
             </div>
           ))}
         </div>
-        <div className="ingredient-list-item-container">
+        <div
+          style={{
+            width: "100%",
+            display: "flex",
+            justifyContent: "flex-start",
+            flexDirection: "row",
+            alignItems: "center",
+            margin: "0.8rem",
+          }}
+        >
           {ingredients.map((ingredient) =>
             renderIngredient(ingredient.icon, ingredient.count)
           )}
