@@ -5,7 +5,7 @@ import TimeProgress from '../CommonComponents/TimeProgress/TimeProgress'
 import Members from './Members'
 import GroupAnalysis from './GroupAnalysis'
 import BottomMenu from './BottomMenu'
-import { useAllUserRooms } from 'hooks/useRoom'
+import { useAllUserRooms, useGetRoomInfo } from 'hooks/useRoom'
 import { CircularProgress } from '@mui/material'
 import { useAllRoomRecords } from 'hooks/useRecord'
 import { Ingredient } from 'api'
@@ -20,6 +20,10 @@ const Room = () => {
     const {
         data: roomData,
     } = useAllUserRooms()
+
+    const {
+        data: roomInfo,
+    } = useGetRoomInfo(Number(roomId))
 
     var targetRoom;
     if (roomData && roomData.data) {
@@ -46,7 +50,7 @@ const Room = () => {
     
     return (
         <div id="room">
-            {roomData === undefined || recordData === undefined ? (
+            {roomData === undefined || recordData === undefined || roomInfo === undefined ? (
                 <CircularProgress sx={{
                     position: 'absolute',
                     top: '50%',
@@ -57,7 +61,7 @@ const Room = () => {
                 <>
                     <Header title={String(targetRoom?.name)} roomData={roomData.data} />
                     <div className='content'>
-                        <Members roomID={targetRoom?.roomID ?? 0} />
+                        <Members memberInfo={roomInfo.data.members} />
                         <GroupAnalysis duration={100} targetYear={2023} targetMonth={month} targetDay={day} />
                         <TimeProgress
                             title="Total Cooking Duration "

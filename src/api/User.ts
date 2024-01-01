@@ -50,3 +50,11 @@ export const GetOverview = async () => {
     });
     return response.data;
 }
+
+export const GetProfile = async (userID: number) => {
+    const response = await axios({
+        method: "GET",
+        url: `${API.profile}/${userID}`,
+    });
+    return response.data;
+}

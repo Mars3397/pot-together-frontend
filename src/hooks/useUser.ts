@@ -1,12 +1,13 @@
 import { useMutation, useQuery } from "react-query";
 import { useNavigate } from "react-router-dom";
-import { Signup, Login, GetOverview } from "api/User";
+import { Signup, Login, GetOverview, GetProfile } from "api/User";
 import { useAuth } from "provider/AuthProvider";
 import {
     APIResponse,
     LevelInfo,
     RecordWithImage,
     DailyLength,
+    UserProfile,
 } from "api";
 
 export const useSignup = () => {
@@ -58,6 +59,18 @@ interface GetOverviewResponse {
 export const useGetOverview = () => {
     return useQuery<APIResponse<GetOverviewResponse>>(
         "overview", GetOverview, {
+        onSuccess: (data) => {
+            console.log(data);
+        },
+        onError: (error) => {
+            console.log(error);
+        },
+    });
+}
+
+export const useGetProfile = (userID: number) => {
+    return useQuery<APIResponse<UserProfile>>(
+        ["profile", userID], () => GetProfile(userID), {
         onSuccess: (data) => {
             console.log(data);
         },

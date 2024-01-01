@@ -31,3 +31,11 @@ export const AllUserRooms = async () => {
     });
     return response.data;
 }
+
+export const RoomInfo = async (roomID: number) => {
+    const response = await axios({
+        method: "GET",
+        url: `${API.rooms}/${roomID}`,
+    });
+    return response.data;
+}

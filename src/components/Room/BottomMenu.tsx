@@ -7,7 +7,7 @@ import './Room.css'
 function BottomMenu() {
     return (
         <div id='bottom-menu'>
-            <Link  to="/">
+            <Link  to="/analysis">
                 <img src={AnalysisBtn} alt="AnalysisBtn" className="bottom-menu-item"/>
             </Link>
             <Link to="./choose">

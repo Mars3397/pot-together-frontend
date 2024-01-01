@@ -1,6 +1,7 @@
 import LinearProgress from '@mui/material/LinearProgress';
 import Box from '@mui/material/Box';
 import Tomato from 'assets/Tomato.svg';
+import Lettuce from "assets/ingredients/ingredient-2.svg";
 import Unlock from 'assets/Unlock.svg'
 import './TimeProgress.css'
 
@@ -42,8 +43,8 @@ function TimeProgress(props: TimeProgressProps) {
                     </object>
                     <span>&nbsp;30:00</span>
                 </div>
-                <object type="image/svg+xml" data={Tomato} aria-label="Ingredient" style={{ width:35, filter: 'grayscale(100%)' }}>
-                        <img src={Tomato} alt="Ingredient" />
+                <object type="image/svg+xml" data={Lettuce} aria-label="Ingredient" style={{ width:35, filter: 'grayscale(100%)' }}>
+                        <img src={Lettuce} alt="Ingredient" />
                 </object>
             </div>
         </div>

@@ -18,7 +18,7 @@ const Choose = () => {
                 />
                 <IngredientOptions groupId={0} initTime={1/6} foodId={[0]}/>
                 <IngredientOptions groupId={1} initTime={1/3} foodId={[1]}/>
-                <IngredientOptions groupId={2} initTime={30} foodId={[0, 1]} />
+                {/* <IngredientOptions groupId={2} initTime={30} foodId={[0, 1]} /> */}
                 {/* <IngredientOptions groupId={0} initTime={30}/>
                 <IngredientOptions groupId={1} initTime={60}/>
                 <IngredientOptions groupId={2} initTime={90}/> */}

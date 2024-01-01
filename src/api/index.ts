@@ -4,6 +4,7 @@ const API = {
     signup: `${backendBaseUrl}/users/signup`,
     login: `${backendBaseUrl}/users/login`,
     overview: `${backendBaseUrl}/users/overview`,
+    profile: `${backendBaseUrl}/users/profile`,
     rooms: `${backendBaseUrl}/rooms`,
     searchRooms: `${backendBaseUrl}/rooms/search`,
     publicRooms: `${backendBaseUrl}/rooms/public`,
@@ -72,6 +73,36 @@ export interface SimpleRoomInfo {
     memberLimit: number;
 }
 
+/**
+ * struture for room info
+ * @field roomID: room id
+ * @field currentPot: current pot UUID
+ * @field name: room name
+ * @field members: array of member info
+ */
+export interface MemberInfo {
+    userID: number;
+    username: string;
+    avatar: number;
+}
+export interface RoomInfo {
+    roomID: number;
+    currentPot: string;
+    name: string;
+    members: MemberInfo[];
+}
+
+export interface UserProfile {
+    id: number;
+    name: string;
+    avatar: number;
+    cookingTime: number;
+    status: {
+        code: number;
+        ingredient: string;
+    }
+    done: string[];
+}
 /**
  * structure for get ingredienta data
  * 

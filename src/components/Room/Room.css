@@ -131,3 +131,82 @@
         margin-bottom: 2rem;
     }
 }
+
+#member-dialog {
+    .dialog-container {
+        width: 100%;
+        height: calc(100% - 1.5rem);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: .8rem 0 2rem;
+    
+        .dialog-header {
+            color: #EF7754;
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+    
+        .name-container {
+            width: calc(100% - 4rem);
+            padding: 0 2rem;
+            display: flex;
+            justify-content: flex-start;
+            align-content: center;
+            margin: .5rem 0;
+    
+            .name-icon {
+                color: #EF7754;
+                border: .15rem solid #EF7754;
+                border-radius: 50%;
+                padding: .5rem .4rem .4rem .4rem;
+                font-size: 1.5rem;
+                margin: auto 0;
+            }
+    
+            .pot-name {
+                flex: 1;
+                margin: auto 0;
+                margin-left: 1rem;
+                border: none;
+                border-radius: .5rem;
+                font-size: 1.75rem;
+                text-align: center;
+                padding-top: .3rem;
+                background-color: #FFCDBE;
+                line-height: 3rem;
+            }
+        }
+
+        .total-cooking-time {
+            border-radius: 10px;
+            background: #F6EDEA;
+            margin: 1.5rem 0;
+            width: 80%;
+
+            .text {
+                width: 100%;
+                margin-top: 0.4rem;
+                margin-left: 0.8rem;
+                font-size: 18px;
+            }
+
+            .time {
+                width: 100%;
+                text-align: center;
+                font-size: 36px;
+                font-weight: 400;
+                letter-spacing: 3.6px;
+                margin: 1.5rem 0;
+            }
+        }
+
+        .more-info {
+            width: 80%;
+            color: #EF7754;
+            font-size: 1.2rem;
+        }
+    }
+}
