@@ -4,6 +4,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  .content {
+  }
 }
 
 .weekly-analysis {
@@ -111,9 +114,9 @@
       width: 100%;
       display: flex;
       justify-content: flex-start;
+      flex-direction: row;
       align-items: center;
       margin: 0.8rem;
-      overflow-x: scroll;
     }
 
     .ingredient-list-item {
