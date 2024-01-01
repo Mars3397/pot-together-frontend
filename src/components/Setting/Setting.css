@@ -6,6 +6,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    overflow-x: hidden;
 
     .invite-title {
         color: #000;
@@ -43,8 +44,8 @@
     }
 
     #chef-cat {
-        width: 12rem;
-        height: 12rem;
+        /* width: 12rem;
+        height: 12rem; */
         transform: rotate(14.925deg);
         position: relative;
         bottom: 5vh;

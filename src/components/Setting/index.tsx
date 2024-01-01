@@ -5,6 +5,7 @@ import HeaderWithBack from "components/CommonComponents/HeaderWithBack"
 import { ReactComponent as Line } from "assets/line.svg"
 import QRCode from "react-qr-code";
 import "./Setting.css"
+import { height } from '@mui/system';
 
 const Setting = () => {
     const { roomId } = useParams()
@@ -66,7 +67,7 @@ const Setting = () => {
                 <button onClick={copyLink} className="btn">COPY</button>
                 <button onClick={shareLink} className="btn">SHARE</button>
             </div>
-            <img id="chef-cat" src={ChefCat} alt="chef-cat"/>
+            <object type="image/svg+xml" data={ChefCat} aria-label="ChefCat" id="chef-cat" style={{height: '12rem'}}></object>
             <button className="leave-btn">LEAVE</button>
             {modalVisible && (
               <div>
