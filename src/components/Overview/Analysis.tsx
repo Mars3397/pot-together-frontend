@@ -1,8 +1,14 @@
+import { useNavigate } from 'react-router-dom'
 import { BarChart } from '@mui/x-charts/BarChart'
 import './Overview.css'
 
 const Analysis = () => {
     const todayDateString = new Date().toLocaleDateString()
+    const navigate = useNavigate()
+    
+    const handleOnClick = () => {
+        navigate('/analysis')
+    }
 
     const lastWeekDateString = [
         new Date(new Date().setDate(new Date().getDate() - 6)).toLocaleDateString(),
@@ -17,7 +23,7 @@ const Analysis = () => {
     console.log(todayDateString.substring(5, todayDateString.length))
 
     return (
-        <div id='analysis'>
+        <div id='analysis' onClick={handleOnClick}>
             <div className='analysis-title'>
                 <span className='analysis-title-text'>Insights</span>
             </div>
