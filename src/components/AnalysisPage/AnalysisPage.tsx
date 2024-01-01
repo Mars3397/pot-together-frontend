@@ -3,7 +3,8 @@ import HeaderWithBack from "components/CommonComponents/HeaderWithBack";
 import { WeeklyAnalysis, DailyAnalysis } from "./AnalysisTable";
 import IngredientList from "./IngredientList";
 import Pork from "assets/ingredients/ingredient-4.svg";
-import Mushroom from "assets/ingredients/ingredient-0.svg";
+import Tomato from "assets/Tomato.svg";
+import Mushroom from "assets/Mushrooms.svg";
 import Tofu from "assets/ingredients/ingredient-3.svg";
 import Lettuce from "assets/ingredients/ingredient-2.svg";
 
@@ -36,12 +37,13 @@ export const AnalysisPage = () => {
 
   // Demo data used in ingredient list
   const cookedToday = [
-    { name: "Pork", count: 1, icon: Pork },
+    { name: "Tomato", count: 1, icon: Tomato },
     { name: "Mushroom", count: 2, icon: Mushroom },
   ];
 
   const cookedYesterday = [
-    { name: "Tofu", count: 3, icon: Tofu },
+    { name: "Tomato", count: 1, icon: Tomato },
+    { name: "Mushroom", count: 2, icon: Mushroom },
     { name: "Lettuce", count: 2, icon: Lettuce },
   ];
 
