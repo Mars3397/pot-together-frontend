@@ -53,8 +53,8 @@ export const WrittenRecord = (props: WrittenRecordProps) => {
           <div className="written-record-interval">{formatTime(interval)}</div>
         </div>
         <div className="written-record-content">
-          {image && <img className="written-record-image" src={image} alt="" />}
-          <div className="written-record-caption">{caption || "cooking..."}</div>
+          {image === 'null' ? null : <img className="written-record-image" src={image} alt="" />}
+          <div className="written-record-caption">{caption === 'null' ? "cooking..." : caption}</div>
           <div className="written-record-date">{username}</div>
         </div>
 

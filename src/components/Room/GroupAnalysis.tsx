@@ -41,7 +41,7 @@ function GroupAnalysis(props: GroupAnalysisProps) {
                     leftAxis={null}
                     bottomAxis={null}
                     xAxis={[{ scaleType: 'band', data: previousDays }]}
-                    series={[{ data: [4, 8, 5, 7, 9, 5, 3], color: colorList[0]}, { data: [25, 13, 34, 66, 44, 34, 12], color: colorList[1] }]}
+                    series={[{ data: [4, 8, 5, 7, 2, 5, 3], color: colorList[0]}, { data: [15, 13, 34, 14, 34, 28, 12], color: colorList[1] }]}
                     width={320}
                     height={100}
                     margin={{

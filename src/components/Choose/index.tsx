@@ -13,7 +13,7 @@ const Choose = () => {
             <div className='content'>
                 <TimeProgress 
                     title="Total Cooking Duration " 
-                    duration={92}
+                    duration={150}
                     target={200}
                 />
                 <IngredientOptions groupId={0} initTime={1/6} foodId={[0]}/>

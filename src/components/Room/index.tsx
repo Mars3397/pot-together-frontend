@@ -62,10 +62,10 @@ const Room = () => {
                     <Header title={String(targetRoom?.name)} roomData={roomData.data} />
                     <div className='content'>
                         <Members memberInfo={roomInfo.data.members} />
-                        <GroupAnalysis duration={100} targetYear={2023} targetMonth={month} targetDay={day} />
+                        <GroupAnalysis duration={150} targetYear={2024} targetMonth={month} targetDay={day} />
                         <TimeProgress
                             title="Total Cooking Duration "
-                            duration={92}
+                            duration={150}
                             target={200}
                         />
                         <IngredientsList

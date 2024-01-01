@@ -27,7 +27,7 @@ function TimeProgress(props: TimeProgressProps) {
             <div className='progress-during'>
                 <span className='progress-title'>
                     <span>{title}</span>
-                    <span style={{ color: '#EF7754' }}>&nbsp;{formatTime}</span>
+                    <span style={{ color: '#EF7754' }}>&nbsp;150:01</span>
                 </span>
                 <div className='progress-container'>
                     <Box sx={{ width: '100%' }} className='progress-content'>
@@ -41,7 +41,7 @@ function TimeProgress(props: TimeProgressProps) {
                     <object type="image/svg+xml" data={Unlock} aria-label="Unlock" style={{ height: '.75rem' }}>
                         <img src={Unlock} alt="Unlock" />
                     </object>
-                    <span>&nbsp;30:00</span>
+                    <span>&nbsp;200:00</span>
                 </div>
                 <object type="image/svg+xml" data={Lettuce} aria-label="Ingredient" style={{ width:35, filter: 'grayscale(100%)' }}>
                         <img src={Lettuce} alt="Ingredient" />
