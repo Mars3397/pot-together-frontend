@@ -22,7 +22,6 @@ const Dialog = (props: DialogProps) => {
             <Box
                 sx={{
                     width: '20rem',
-                    height: '28rem',
                 }}
             >
                 <IconButton
@@ -30,6 +29,7 @@ const Dialog = (props: DialogProps) => {
                     onClick={handleClose}
                     sx={{
                         position: 'absolute',
+                        zIndex: 999,
                         left: '.5rem',
                         top: '.5rem',
                         color: '#969696',
