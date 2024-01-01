@@ -28,7 +28,7 @@ const IngredientOptions = (props: IngredientOptionsProps) => {
         addRecord({
             roomID: Number(roomId),
             potID: "none",
-            ingredientID: 1,
+            ingredientID: id + 1,
         }, {
             onSuccess: (data) => {
                 initTime = initTime * 60;
