@@ -18,7 +18,9 @@ export const IngredientList = (props: IngredientListProps) => {
     for (let i = 0; i < count; i++) {
       divs.push(
         <div className="ingredient-list-item">
-          <img src={icon}></img>
+          <object type="image/svg+xml" data={icon} aria-label={icon} style={{ height: '36px', margin: '0 5px' }}>
+            <img src={icon} alt={icon} style={{ height: '36px' }} />
+          </object>
         </div>
       );
     }
