@@ -6,7 +6,7 @@ import { PickersDay, PickersDayProps } from '@mui/x-date-pickers/PickersDay';
 import './Overview.css'
 
 const Calendar = () => {
-    const lighlightDays = [2, 5, 8, 10, 11, 12, 13, 14, 15, 18, 19, 21, 23, 25, 26, 27, 29]
+    const lighlightDays = [1, 2, 5, 8, 10, 11, 12, 13, 14, 15, 18, 19, 21, 23, 25, 26, 27, 29]
 
     const getRandomInt = (min: number, max: number) => {
         return Math.floor(Math.random() * (max - min + 1)) + min
