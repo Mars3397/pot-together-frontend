@@ -10,7 +10,8 @@ import { MemberInfo } from 'api';
 import { useGetProfile } from 'hooks/useUser';
 import { formatTime } from 'utils';
 
-const colorList = ["#246270", "#63623A", "#8A4F3E", "#36423C"]
+const colorList = ["#EF7754", "#7D7D2D", "#7F84C5", "#36423C"]
+const colorBackgroundList = ["#FFCDBE", "#DADABD", "#BABEF4", "#C8CBC1"]
 const avatarList = [Avatar1, Avatar2, Avatar3, Avatar4]
 
 interface MembersProps {
@@ -48,8 +49,8 @@ const Members = (props: MembersProps) => {
             </div>
             <div className='members-content'>
                 {memberInfo.map((member, index) => (
-                    <div className='members-item' style={{ borderColor: colorList[index] }} onClick={() => handleClickOpen(member)}>
-                        <img src={avatarList[member.avatar]} alt="Avatar" className="avatar" />
+                    <div className='members-item' style={{ borderColor: colorList[(index%4)] }} onClick={() => handleClickOpen(member)}>
+                        <img src={avatarList[member.avatar]} alt="Avatar" className="avatar" style={{backgroundColor: colorBackgroundList[(index%4)]}} />
                     </div>
                 ))}
             </div>
